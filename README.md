@@ -7,3 +7,7 @@ Bu proje, lise stajı kapsamında geliştirilen responsive ve etkileşimli bir w
 - Etkinlikler (`events.html`)
 - Duyurular (`announcements.html`)
 - İletişim (`contact.html`)
+
+
+## Kullanılan Teknolojiler
+- HTML5
