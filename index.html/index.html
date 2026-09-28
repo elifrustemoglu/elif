@@ -19,24 +19,70 @@
     
   <!-- Yaklaşan Etkinlikler Alanı -->
 
-    <h2 style="color: rgb(255, 0, 119);">Yaklaşan Etkinlikler</h2>
+    <h2 style="color: red;">Yaklaşan Etkinlikler</h2>
     <ul>
     <li>
-            <h3>Web Geliştirme </h3>
-            <p><strong>Tarih:</strong> 15 Ekim 2026</p>
+            <h3 style="color: rgb(241, 60, 60);">Web Geliştirme </h3>
+            <p><strong style="color: rgb(126, 18, 18);">Tarih:</strong> 15 Ekim 2026</p>
             <p>HTML ve CSS ile sıfırdan web sitesi yapmayı öğrenin.</p>
     </li>
     <li>
-            <h3>Siber Güvenlik Semineri</h3>
-            <p><strong>Tarih:</strong> 22 Ekim 2026</p>
+            <h3 style="color: rgb(241, 60, 60);">Siber Güvenlik Semineri</h3>
+            <p><strong style="color: rgb(126, 18, 18);">Tarih:</strong> 22 Ekim 2026</p>
             <p>Güvenli internet kullanımı ve temel siber güvenlik kavramları.</p>
     </li>
     </ul>
     
     <p>
-    Kurumumuz hakkındaki daha fazla bilgi almak için 
+    <strong>Kurumumuz hakkındaki daha fazla bilgi almak için </strong>
     <a href="https://www.meb.gov.tr" target="_blank">resmi sitemizi ziyaret edin</a>.
     </p>
+
+   <form action="#" method="post">
+    <!-- Ad Soyad -->
+    <div>
+        <label for="">Ad Soyad:</label><br>
+        <input type="text" id="" name="" placeholder="Adınız ve Soyadınız" required>
+    </div>
+    <br>
+
+    <!-- E-posta -->
+    <div>
+        <label for="email">E-posta Adresi:</label><br>
+        <input type="email" id="email" name="email" placeholder="ornek@email.com" required>
+    </div>
+    <br>
+
+    <!-- Kategori -->
+    <div>
+        <label for="category">Kategori:</label><br>
+        <select id="category" name="category">
+            <option value="bilgi">Bilgi Talebi</option>
+            <option value="etkinlik">Etkinlik Hakkında</option>
+            <option value="egitim">Eğitim Başvurusu</option>
+            <option value="diger">Diğer</option>
+        </select>
+    </div>
+    <br>
+
+    <!-- Konu -->
+    <div>
+        <label for="subject">Konu:</label><br>
+        <input type="text" id="subject" name="subject" placeholder="Mesajınızın konusu" required>
+    </div>
+    <br>
+
+    <!-- Mesaj -->
+    <div>
+        <label for="message">Mesajınız:</label><br>
+        <textarea id="message" name="message" rows="5" placeholder="Mesajınızı buraya yazın..." required></textarea>
+    </div>
+    <br>
+
+    <!-- Gönder Butonu -->
+    <button type="submit">Gönder</button>
+</form>
+
 
 
 </body>
