@@ -1,0 +1,20 @@
+/* FLEXBOX DÜZENLEMELERİ*/
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.event-container {
+  display: flex;
+  flex-wrap: wrap;                /* Sığmayan kartlar alt satıra geçsin */
+  gap: 20px;                      /* Kartlar arası boşluk */
+  justify-content: center;        /* Kartları ortala */
+}
+
+.event-card {
+  flex: 1 1 300px;                /* Esnek büyüsün, minimum 300px genişlik alsın */
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+}
