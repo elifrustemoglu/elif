@@ -156,7 +156,6 @@ footer {
     grid-template-columns: repeat(3, 1fr); /* Masaüstünde 3 kolon */
   }
 }
-*/
 
 /* Kart Tasarımı */
 .event-card {
@@ -165,4 +164,56 @@ footer {
   border-radius: 8px;
   padding: 16px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+a{
+        font-size: 16px;
+    }
+    a:hover{
+        color: #ff6600;
+    }
+    /* Sayfanın üstündeki menü alanı */
+header {
+  position: sticky;
+  top: 0;
+  background-color: #ffffff;
+  border-bottom: 2px solid #e5e7eb;
+  z-index: 10; /* Diğer kartların üstünde kalsın diye */
+}
+/* Normal Buton Stili */
+.btn {
+  background-color: #2563eb; /* Mavi renk */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px; /* Hafif yuvarlatılmış köşeler */
+  cursor: pointer; /* Fare simgesini el şekli yapar */
+  transition: 0.3s; /* Değişimin yumuşak geçmesini sağlar */
+}
+
+/* Fareyle üzerine gelindiğinde (Hover) */
+.btn:hover {
+  background-color: #1d4ed8; /* Bir tık daha koyu mavi */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Altına hafif gölge */
+}
+
+/* Tıklandığı anda (Active) */
+.btn:active {
+  background-color: #1e40af;
+}
+
+/* Formdaki yazı alanları */
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none; /* Varsayılan çirkin siyah kenarlığı kaldırır */
+  transition: 0.3s;
+}
+
+/* Kutuya tıklandığında / yazı yazılırken (Focus) */
+input:focus, textarea:focus {
+  border-color: #2563eb; 
+  box-shadow: 0 0 5px rgba(37, 99, 235, 0.5); 
 }
