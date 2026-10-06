@@ -214,6 +214,66 @@ input, textarea {
 
 /* Kutuya tıklandığında / yazı yazılırken (Focus) */
 input:focus, textarea:focus {
-  border-color: #2563eb; 
+  border-color: #2469ff; 
   box-shadow: 0 0 5px rgba(37, 99, 235, 0.5); 
+}
+
+/* Form altındaki Gönder butonunu form genişliğine uyarlamak için */
+form button[type="submit"] {
+  margin-top: 10px;
+  width: 100%; /* Dilersen tüm genişliği kaplamasını sağlar */
+}
+
+/* ==========================================
+   MOBİL VE TABLET UYUMU (RESPONSIVE)
+   ========================================== */
+
+/* Ekran genişliği 768px veya daha küçükse (Tablet ve Telefonlar) */
+@media (max-width: 768px) {
+  
+  /* Etkinlik kartlarını tek sütuna düşür, alt alta sıralansın */
+  .events-container, 
+  .cards-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  /* Form alanını mobil ekrana tam sığdır */
+  form {
+    width: 100%;
+    padding: 10px;
+  }
+
+  /* Başlıkları mobil ekran boyutuna göre küçült */
+  h1 {
+    font-size: 22px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+}
+.navbar a.active {
+    border-bottom: 2px solid #2b6cb0; /* Aktif sayfa linkinin altına çizgi ekler */
+    font-weight: bold;
+}
+/* Ana Sayfa İletişim Çağrı Kutusu */
+.contact-cta {
+    background-color: #f7fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.contact-cta h3 {
+    margin-top: 0;
+    color: #2d3748;
+}
+
+.contact-cta p {
+    color: #4a5568;
+    margin-bottom: 15px;
 }
