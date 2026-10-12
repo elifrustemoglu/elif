@@ -176,10 +176,16 @@ a{
 header {
   position: sticky;
   top: 0;
-  background-color: #ffffff;
-  border-bottom: 2px solid #e5e7eb;
+  background-color: #1a365d;
+  color: #ffffff;
+  border-bottom: 2px solid #1a365d;
   z-index: 10; /* Diğer kartların üstünde kalsın diye */
 }
+
+header h1 {
+  color: #ffffff;
+}
+
 /* Normal Buton Stili */
 .btn {
   background-color: #2563eb; /* Mavi renk */

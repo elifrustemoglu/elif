@@ -1,0 +1,23 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Start local website server",
+            "type": "process",
+            "command": "node",
+            "args": ["server.js"],
+            "isBackground": true,
+            "problemMatcher": {
+                "owner": "custom",
+                "pattern": {
+                    "regexp": "^$"
+                },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "^Starting local website server\\.\\.\\.$",
+                    "endsPattern": "^Local website ready: http://127\\.0\\.0\\.1:5500$"
+                }
+            }
+        }
+    ]
+}
