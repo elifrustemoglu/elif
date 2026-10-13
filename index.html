@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Eğitim ve Etkinlik Duyuru Portalı</title>
-    <!-- Tailwind CSS CDN -->
+    
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/events.js"></script>
 </head>
 <body class="bg-gray-50 min-h-screen">
 
-    <!-- HEADER (Mavi Temalı Responsive Üst Menü) -->
+    <!-- (Mavi Temalı Responsive Üst Menü) -->
     <header class="bg-blue-600 w-full px-4 py-3 shadow-md sticky top-0 z-50">
       <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
         
@@ -45,7 +47,7 @@
           </button>
         </div>
 
-            <!-- Giriş Yap (Buton yerine Link yapıldı) -->
+            <!-- Giriş Yap -->
            <div class="flex items-center shrink-0">
   <a href="login.html" class="flex items-center gap-2 text-white hover:text-gray-100 font-semibold text-sm py-1.5 px-3 rounded-lg hover:bg-white/10 transition-colors">
     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -60,7 +62,7 @@
       </div>
     </header>
 
-    <!-- ANA İÇERİK (Responsive Grid ve Flex Yapısı) -->
+    <!-- ANA İÇERİK -->
     <main class="max-w-7xl mx-auto px-4 py-8">
       
       <!-- Bölüm Başlığı -->
@@ -71,11 +73,10 @@
         </div>
       </div>
 
-      <!-- Grid Kart Listesi (Mobilde 1, Tabletde 2, Masaüstünde 3 kolon) -->
       <!-- Etkinlikler Grid Alanı -->
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
 
-    <!-- 1. Kart: Mühendislik ve Yazılım Kariyer -->
+    <!-- 1. Kart -->
     <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-100 flex flex-col justify-between hover:shadow-lg transition">
         <div>
             <h3 class="text-xl font-bold text-blue-600 mb-2">Mühendislik ve Yazılım Kariyer</h3>
@@ -88,7 +89,7 @@
         </button>
     </div>
 
-    <!-- 2. Kart: Web Geliştirme -->
+    <!-- 2. Kart -->
     <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-100 flex flex-col justify-between hover:shadow-lg transition">
         <div>
             <h3 class="text-xl font-bold text-blue-600 mb-2">Web Geliştirme</h3>
@@ -101,7 +102,7 @@
         </button>
     </div>
 
-    <!-- 3. Kart: Siber Güvenlik -->
+    <!-- 3. Kart -->
     <div class="bg-white p-6 rounded-2xl shadow-md border border-gray-100 flex flex-col justify-between hover:shadow-lg transition">
         <div>
             <h3 class="text-xl font-bold text-blue-600 mb-2">Siber Güvenlik</h3>
@@ -118,6 +119,61 @@
 
       </div>
       </main>
+<!-- Etkinlik Kartı -->
+<div class="max-w-sm rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-100 hover:shadow-xl transition-shadow duration-300 m-6 font-sans">
+  
+  <!-- Kart Görseli ve Durum Rozeti -->
+  <div class="relative">
+    <img class="w-full h-48 object-cover" src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80" alt="Etkinlik Görseli">
+    <span class="absolute top-3 right-3 bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">
+      Açık
+    </span>
+  </div>
+
+  <!-- Kart İçeriği -->
+  <div class="p-5">
+    
+    <!-- Kategori & Tür -->
+    <div class="flex items-center justify-between text-xs font-semibold text-indigo-600 uppercase tracking-wider mb-2">
+      <span>Teknoloji</span>
+      <span class="bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded border border-indigo-100">Yüz Yüze</span>
+    </div>
+
+    <!-- Etkinlik Başlığı -->
+    <h3 class="text-xl font-bold text-gray-800 mb-3 hover:text-indigo-600 cursor-pointer transition-colors">
+      Yapay Zeka ve Gelecek Konferansı
+    </h3>
+
+    <!-- Detay Bilgileri -->
+    <div class="space-y-2 text-sm text-gray-600 mb-5">
+      <!-- Yer Bilgisi -->
+      <div class="flex items-center gap-2">
+        <svg class="w-4 h-4 text-gray-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        <span>Konferans Salonu A</span>
+      </div>
+
+      <!-- Kontenjan -->
+      <div class="flex items-center gap-2">
+        <svg class="w-4 h-4 text-gray-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+        <span>Kontenjan: <strong class="text-gray-800">50 Kişi</strong></span>
+      </div>
+
+     
+
+    <!-- Buton -->
+    <button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2.5 px-4 rounded-xl transition-colors duration-200 shadow-md hover:shadow-indigo-200">
+      Etkinliğe Katıl
+    </button>
+
+  </div>
+</div>
+
+
+
+
+
 
 </body>
 </html>
