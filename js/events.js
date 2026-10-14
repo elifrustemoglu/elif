@@ -26,3 +26,4 @@ console.log("Çevrim İçi mi?:", isOnline);
 console.log("Kayıt Durumu Açık mı?:", kayitDurumuAcik);
 console.log("Katılımcı Listesi:", katilimciListesi);
 console.log("Eğitmen Puanı (Atanmadı):", egitmenPuani);
+

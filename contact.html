@@ -1,46 +1,108 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/flexbox.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>İletişim - EĞİTİM VE ETKİNLİK PORTALI</title>
+    <title>İletişim - Eğitim ve Etkinlik Portalı</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="min-h-screen bg-purple-50 font-sans text-slate-800">
+    <header class="bg-purple-900 px-4 py-5 text-white shadow-md">
+        <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 sm:flex-row">
+            <h1 class="text-center text-xl font-bold sm:text-left">Eğitim ve Etkinlik Portalı</h1>
 
-    <header>
-        <h1>EĞİTİM VE ETKİNLİK DUYURU PORTALI</h1>
-        <nav>
-            <a href="index.html">Ana Sayfa</a> | 
-            <a href="events.html">Etkinlikler</a> | 
-            <a href="contact.html" class="btn">İletişime Geç</a>
-        </nav>
+            <nav class="flex flex-wrap justify-center gap-4 text-sm font-semibold sm:text-base">
+                <a href="index.html" class="hover:text-yellow-300">Ana Sayfa</a>
+                <a href="events.html" class="hover:text-yellow-300">Etkinlikler</a>
+                <a href="contact.html" class="text-yellow-300">İletişim</a>
+                <a href="login.html" class="hover:text-yellow-300">Giriş Yap</a>
+            </nav>
+        </div>
     </header>
 
-    <main>
-        <h2>İletişim Formu</h2>
-        <p>Bize ulaşmak için aşağıdaki formu doldurabilirsiniz.</p>
-        
-        <form class="my-form">
-            <label for="fullname">Ad Soyad:</label>
-            <input type="text" id="fullname" placeholder="Adınız ve Soyadınız">
+    <main class="mx-auto max-w-5xl px-4 py-10">
+        <section class="mb-8 text-center">
+            <h2 class="mb-3 text-3xl font-bold text-purple-900">Bize Ulaşın</h2>
+            <p class="mx-auto max-w-2xl text-slate-600">
+                Etkinlikler hakkında soru sormak veya önerinizi paylaşmak için formu doldurun.
+            </p>
+        </section>
 
-            <label for="email">E-posta Adresi:</label>
-            <input type="email" id="email" placeholder="ornek@email.com">
+        <div class="grid gap-6 md:grid-cols-3">
+            <section class="rounded-xl bg-purple-700 p-6 text-white shadow-md">
+                <h3 class="mb-4 text-xl font-bold">İletişim Bilgileri</h3>
 
-            <label for="category">Kategori:</label>
-            <select id="category">
-                <option>Bilgi Talebi</option>
-                <option>Geri Bildirim</option>
-            </select>
+                <p class="mb-3">
+                    <strong class="block text-purple-100">E-posta:</strong>
+                    
+                   
+                </p>
+                <p>
+                    <strong class="block text-purple-100">Telefon:</strong>
 
-            <label for="message">Mesajınız:</label>
-            <textarea id="message" placeholder="Mesajınızı buraya yazın..."></textarea>
 
-            <button type="submit" class="btn">Gönder</button>
-        </form>
+                </p>
+                <p>
+                    <strong class="block text-purple-100">Adres:</strong>
+
+                    
+                </p>
+            </section>
+
+            <form id="contactForm" class="rounded-xl bg-white p-6 shadow-md md:col-span-2">
+                <div class="mb-4">
+                    <label for="fullname" class="mb-1 block font-semibold">Ad Soyad:</label>
+                    <input id="fullname" name="fullname" type="text" required
+                        placeholder="Adınızı ve soyadınızı yazın"
+                        class="w-full rounded-lg border border-slate-300 px-3 py-2 focus:border-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-200">
+                </div>
+
+                <div class="mb-4">
+                    <label for="email" class="mb-1 block font-semibold">E-posta Adresi:</label>
+                    <input id="email" name="email" type="email" required
+                        placeholder="ornek@email.com"
+                        class="w-full rounded-lg border border-slate-300 px-3 py-2 focus:border-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-200">
+                </div>
+
+                <div class="mb-4">
+                    <label for="category" class="mb-1 block font-semibold">Konu:</label>
+                    <select id="category" name="category" required
+                        class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 focus:border-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-200">
+                        <option value="">Bir konu seçin</option>
+                        <option value="Bilgi Talebi">Bilgi Talebi</option>
+                        <option value="Geri Bildirim">Geri Bildirim</option>
+                        <option value="Etkinlik Başvurusu">Etkinlik Başvurusu</option>
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <label for="message" class="mb-1 block font-semibold">Mesajınız:</label>
+                    <textarea id="message" name="message" rows="5" required
+                        placeholder="Mesajınızı buraya yazın"
+                        class="w-full rounded-lg border border-slate-300 px-3 py-2 focus:border-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-200"></textarea>
+                </div>
+
+                <button type="submit"
+                    class="rounded-lg bg-purple-700 px-5 py-2 font-bold text-white hover:bg-purple-800">
+                    Gönder
+                </button>
+                <p id="form-status" class="mt-4 font-semibold" aria-live="polite"></p>
+            </form>
+        </div>
     </main>
 
+    <script>
+        const form = document.getElementById("contactForm");
+        const status = document.getElementById("form-status");
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const fullname = document.getElementById("fullname").value.trim();
+            status.textContent = "Teşekkürler " + fullname + ". Bu örnek sayfada form gönderimi kaydedilmiyor.";
+            status.className = "mt-4 font-semibold text-green-700";
+            form.reset();
+        });
+    </script>
 </body>
 </html>
