@@ -1,59 +1,58 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/flexbox.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etkinlikler - EĞİTİM VE ETKİNLİK PORTALI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
+<body class="min-h-screen bg-gray-50 font-sans text-gray-800">
 
-    <header>
-        <h1>EĞİTİM VE ETKİNLİK DUYURU PORTALI</h1>
-        <nav>
-            <a href="index.html">Ana Sayfa</a> | 
-            <a href="events.html">Etkinlikler</a> | 
-            <a href="contact.html">İletişim</a>
-        </nav>
-    </header> 
+    <header class="bg-purple-600 px-4 py-5 text-white shadow-md">
+        <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 sm:flex-row">
+            <h1 class="text-center text-xl font-bold text-white sm:text-left">Eğitim ve Etkinlik Portalı</h1>
+            <nav class="flex flex-wrap justify-center gap-4 text-sm font-semibold sm:text-base">
+                <a href="index.html" class="hover:text-purple-200">Ana Sayfa</a>
+                <a href="events.html" class="text-purple-200">Etkinlikler</a>
+                <a href="contact.html" class="hover:text-purple-200">İletişim</a>
+                <a href="login.html" class="hover:text-purple-200">Giriş Yap</a>
+            </nav>
+        </div>
+    </header>
 
-    <main>
-        <h2>Tüm Etkinlikler</h2>
-        <p>Gençlerin ve öğrencilerin eğitimler, seminerler ve sosyal etkinliklerden anında haberdar olmasını sağlayan duyuru platformu.</p>
+    <main class="mx-auto max-w-6xl px-4 py-10">
+        <section class="mb-8 text-center">
+            <h2 class="mb-3 text-3xl font-bold text-purple-600">Tüm Etkinlikler</h2>
+            <p class="mx-auto max-w-2xl text-gray-500">Gençlerin ve öğrencilerin eğitimler, seminerler ve sosyal etkinliklerden anında haberdar olmasını sağlayan duyuru platformu.</p>
+        </section>
 
-        <!-- Kariyer Etkinlik Kartı -->
-        <div class="card">
-            <h3>Mühendislik ve Yazılım Kariyer</h3>
-            <p><strong>Tarih:</strong> 28 Kasım 2026</p>
-            <p><strong>Kategori:</strong> Konferans</p>
-            <p>Sektörde çalışan bilgisayar ve yazılım mühendisleriyle buluşma, üniversite tercihi ve staj imkanları bilgilendirmesi.</p>
-            <button class="btn">Detayları Gör</button>
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <article class="rounded-2xl border border-gray-100 bg-white p-6 shadow-lg">
+                <h3 class="mb-4 text-xl font-bold text-purple-600">Mühendislik ve Yazılım Kariyer</h3>
+                <p class="mb-2"><strong>Tarih:</strong> 28 Kasım 2026</p>
+                <p class="mb-3"><strong>Kategori:</strong> Konferans</p>
+                <p class="mb-5 text-gray-600">Sektörde çalışan bilgisayar ve yazılım mühendisleriyle buluşma, üniversite tercihi ve staj imkanları bilgilendirmesi.</p>
+                <button class="rounded-lg bg-purple-600 px-5 py-2 font-semibold text-white shadow-md transition hover:bg-purple-700">Detayları Gör</button>
+            </article>
+
+            <article class="rounded-2xl border border-gray-100 bg-white p-6 shadow-lg">
+                <h3 class="mb-4 text-xl font-bold text-purple-600">Web Geliştirme</h3>
+                <p class="mb-2"><strong>Tarih:</strong> 15 Aralık 2026</p>
+                <p class="mb-3"><strong>Kategori:</strong> Atölye</p>
+                <p class="mb-5 text-gray-600">HTML ve CSS ile sıfırdan web sitesi yapmayı öğrenin.</p>
+                <button class="rounded-lg bg-purple-600 px-5 py-2 font-semibold text-white shadow-md transition hover:bg-purple-700">Detayları Gör</button>
+            </article>
+
+            <article class="rounded-2xl border border-gray-100 bg-white p-6 shadow-lg">
+                <h3 class="mb-4 text-xl font-bold text-purple-600">Siber Güvenlik</h3>
+                <p class="mb-2"><strong>Tarih:</strong> 22 Ekim 2026</p>
+                <p class="mb-3"><strong>Kategori:</strong> Seminer</p>
+                <p class="mb-5 text-gray-600">Güvenli internet kullanımı ve temel siber güvenlik kavramları.</p>
+                <button class="rounded-lg bg-purple-600 px-5 py-2 font-semibold text-white shadow-md transition hover:bg-purple-700">Detayları Gör</button>
+            </article>
         </div>
 
-        <!-- Web Geliştirme Kartı -->
-        <div class="card">
-            <h3>Web Geliştirme</h3>
-            <p><strong>Tarih:</strong> 15 Aralık 2026</p>
-            <p><strong>Kategori:</strong> Atölye</p>
-            <p>HTML ve CSS ile sıfırdan web sitesi yapmayı öğrenin.</p>
-            <button class="btn">Detayları Gör</button>
-        </div>
-
-        <!-- Siber Güvenlik Kartı -->
-        <div class="card">
-            <h3>Siber Güvenlik</h3>
-            <p><strong>Tarih:</strong> 22 Ekim 2026</p>
-            <p><strong>Kategori:</strong> Seminer</p>
-            <p>Güvenli internet kullanımı ve temel siber güvenlik kavramları.</p>
-            <button class="btn">Detayları Gör</button>
-        </div>
-
-        <p>
-            <strong>Kurumumuz hakkındaki daha fazla bilgi almak için </strong>
-            <a href="https://www.diyanet.gov.tr/tr-TR" target="_blank">resmi sitemizi ziyaret edin</a>.
-        </p>
     </main>
 
 </body>

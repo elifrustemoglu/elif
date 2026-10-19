@@ -6,30 +6,30 @@
     <title>İletişim - Eğitim ve Etkinlik Portalı</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="min-h-screen bg-purple-50 font-sans text-slate-800">
-    <header class="bg-purple-900 px-4 py-5 text-white shadow-md">
+<body class="min-h-screen bg-gray-50 font-sans text-gray-800">
+    <header class="bg-purple-600 px-4 py-5 text-white shadow-md">
         <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 sm:flex-row">
             <h1 class="text-center text-xl font-bold sm:text-left">Eğitim ve Etkinlik Portalı</h1>
 
             <nav class="flex flex-wrap justify-center gap-4 text-sm font-semibold sm:text-base">
-                <a href="index.html" class="hover:text-yellow-300">Ana Sayfa</a>
-                <a href="events.html" class="hover:text-yellow-300">Etkinlikler</a>
-                <a href="contact.html" class="text-yellow-300">İletişim</a>
-                <a href="login.html" class="hover:text-yellow-300">Giriş Yap</a>
+                <a href="index.html" class="hover:text-purple-200">Ana Sayfa</a>
+                <a href="events.html" class="hover:text-purple-200">Etkinlikler</a>
+                <a href="contact.html" class="text-purple-200">İletişim</a>
+                <a href="login.html" class="hover:text-purple-200">Giriş Yap</a>
             </nav>
         </div>
     </header>
 
     <main class="mx-auto max-w-5xl px-4 py-10">
         <section class="mb-8 text-center">
-            <h2 class="mb-3 text-3xl font-bold text-purple-900">Bize Ulaşın</h2>
-            <p class="mx-auto max-w-2xl text-slate-600">
+            <h2 class="mb-3 text-3xl font-bold text-purple-600">Bize Ulaşın</h2>
+            <p class="mx-auto max-w-2xl text-gray-500">
                 Etkinlikler hakkında soru sormak veya önerinizi paylaşmak için formu doldurun.
             </p>
         </section>
 
         <div class="grid gap-6 md:grid-cols-3">
-            <section class="rounded-xl bg-purple-700 p-6 text-white shadow-md">
+            <section class="rounded-2xl bg-purple-600 p-6 text-white shadow-lg">
                 <h3 class="mb-4 text-xl font-bold">İletişim Bilgileri</h3>
 
                 <p class="mb-3">
@@ -49,25 +49,25 @@
                 </p>
             </section>
 
-            <form id="contactForm" class="rounded-xl bg-white p-6 shadow-md md:col-span-2">
+            <form id="contactForm" class="rounded-2xl border border-gray-100 bg-white p-6 shadow-lg md:col-span-2">
                 <div class="mb-4">
-                    <label for="fullname" class="mb-1 block font-semibold">Ad Soyad:</label>
+                    <label for="fullname" class="mb-1 block font-semibold text-gray-700">Ad Soyad:</label>
                     <input id="fullname" name="fullname" type="text" required
                         placeholder="Adınızı ve soyadınızı yazın"
-                        class="w-full rounded-lg border border-slate-300 px-3 py-2 focus:border-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-200">
+                        class="w-full rounded-lg border border-gray-300 px-3 py-2 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500">
                 </div>
 
                 <div class="mb-4">
-                    <label for="email" class="mb-1 block font-semibold">E-posta Adresi:</label>
+                    <label for="email" class="mb-1 block font-semibold text-gray-700">E-posta Adresi:</label>
                     <input id="email" name="email" type="email" required
                         placeholder="ornek@email.com"
-                        class="w-full rounded-lg border border-slate-300 px-3 py-2 focus:border-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-200">
+                        class="w-full rounded-lg border border-gray-300 px-3 py-2 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500">
                 </div>
 
                 <div class="mb-4">
-                    <label for="category" class="mb-1 block font-semibold">Konu:</label>
+                    <label for="category" class="mb-1 block font-semibold text-gray-700">Konu:</label>
                     <select id="category" name="category" required
-                        class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 focus:border-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-200">
+                        class="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500">
                         <option value="">Bir konu seçin</option>
                         <option value="Bilgi Talebi">Bilgi Talebi</option>
                         <option value="Geri Bildirim">Geri Bildirim</option>
@@ -76,14 +76,14 @@
                 </div>
 
                 <div class="mb-4">
-                    <label for="message" class="mb-1 block font-semibold">Mesajınız:</label>
+                    <label for="message" class="mb-1 block font-semibold text-gray-700">Mesajınız:</label>
                     <textarea id="message" name="message" rows="5" required
                         placeholder="Mesajınızı buraya yazın"
-                        class="w-full rounded-lg border border-slate-300 px-3 py-2 focus:border-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-200"></textarea>
+                        class="w-full rounded-lg border border-gray-300 px-3 py-2 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500"></textarea>
                 </div>
 
                 <button type="submit"
-                    class="rounded-lg bg-purple-700 px-5 py-2 font-bold text-white hover:bg-purple-800">
+                    class="rounded-lg bg-purple-600 px-5 py-2 font-bold text-white transition hover:bg-purple-700">
                     Gönder
                 </button>
                 <p id="form-status" class="mt-4 font-semibold" aria-live="polite"></p>
