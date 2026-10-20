@@ -1,10 +1,8 @@
-// --- JavaScript'e Giriş ve Değişkenler ---
-
-const etkinlikAdi = "Yapay Zeka ve Gelecek Konferansı";
+const etkinlikAdi = "Yapay Zeka";
 const kategori = "Teknoloji";
 const yer = "Konferans Salonu A";
 
-let kontenjan = 50;
+let kontenjan = 200;
 let isOnline = false;
 let kayitDurumuAcik = true;
 let katilimciListesi = null; 
@@ -43,7 +41,7 @@ console.log(etiketOlustur("yazilim"));
 console.log(kontenjanKontrol(5));      
 console.log(tarihYaz(19, 10, 2026));   
 
-// 1. En az 8 etkinlik adından oluşan dizimizi tanımlıyoruz
+//  En az 8 etkinlik 
 const etkinlikler = [
   "Yazılıma Giriş Semineri",
   "Tailwind CSS Workshop",
@@ -53,22 +51,66 @@ const etkinlikler = [
   "Mobil Uygulama Geliştirme",
   "Git & GitHub Eğitimi",
   "UX/UI Tasarım Atölyesi"
-];
+]
+console.log(" BÜTÜN ETKİNLİK LİSTESİ ");
 
-console.log("--- BÜTÜN ETKİNLİK LİSTESİ ---");
-
-// 2. forEach döngüsü ile tüm etkinlikleri sırayla konsola yazdırıyoruz
-etkinlikler.forEach((etkinlik, indeks) => {
+etkinlikler.forEach((etkinlik, indeks) =>
+ {
   console.log(`${indeks + 1}. Etkinlik: ${etkinlik}`);
 });
+console.log(" FİLTRELENMİŞ ETKİNLİKLER");
 
-console.log("\n--- FİLTRELENMİŞ ETKİNLİKLER (Örn: 'Workshop' veya 'Eğitimi' içerenler) ---");
-
-// 3. Döngü ve koşul (if) kullanarak belirli bir kritere uyanları ayırıyoruz
-etkinlikler.forEach((etkinlik) => {
+etkinlikler.forEach((etkinlik) => 
+  {
   if (etkinlik.includes("Workshop") || etkinlik.includes("Eğitimi")) {
     console.log("Seçilen Önemli Etkinlik:", etkinlik);
   }
 });
 
 
+// js/main.js
+
+document.addEventListener("DOMContentLoaded", () => {
+  // HTML'deki ana kapsayıcıyı seçiyoruz
+  const container = document.getElementById("events-container");
+
+  // Eğer sayfada bu ID yoksa hata vermemesi için kontrol koyuyoruz
+  if (!container) return;
+
+  // Konteynerin içini sıfırlıyoruz
+  container.innerHTML = "";
+
+  // eventsData dizisindeki her bir etkinlik için dönüyoruz
+  eventsData.forEach(event => {
+    // Yeni bir div (kart) oluşturuyoruz
+    const card = document.createElement("div");
+    
+    // Tailwind sınıflarını ekleyerek şık bir kart tasarımı yapıyoruz
+    card.className = "bg-white p-5 rounded-xl shadow-sm border border-gray-100 flex flex-col justify-between hover:shadow-md transition";
+
+    // Kartın içine gelecek HTML yapısı
+    card.innerHTML = `
+      <div>
+        <span class="text-xs font-bold text-purple-600 uppercase tracking-wider bg-purple-50 px-2 py-1 rounded">
+          ${event.category}
+        </span>
+        <h3 class="text-lg font-bold text-gray-800 mt-3">${event.title}</h3>
+        <p class="text-sm text-gray-600 mt-2 line-clamp-2">${event.description}</p>
+      </div>
+
+      <div class="mt-4 pt-3 border-t border-gray-100 text-xs text-gray-500 space-y-1">
+        <p>📅 <strong>Tarih:</strong> ${event.date} - ${event.time}</p>
+        <p>📍 <strong>Yer:</strong> ${event.location}</p>
+        <p>🏢 <strong>Birim:</strong> ${event.unit}</p>
+      </div>
+
+      <button onclick="alert('${event.title} etkinliğine tıklandı!')" 
+              class="mt-5 w-full bg-purple-600 text-white py-2 rounded-lg text-sm font-medium hover:bg-purple-700 transition">
+        Detayları Gör
+      </button>
+    `;
+
+    // Oluşturduğumuz kartı sayfadaki ana kutunun içine ekliyoruz
+    container.appendChild(card);
+  });
+});
