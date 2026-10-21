@@ -114,3 +114,35 @@ document.addEventListener("DOMContentLoaded", () => {
     container.appendChild(card);
   });
 });
+
+// 1. Elemanları Seçme (document.getElementById ve querySelector kullanımı)
+const title = document.getElementById('main-title');
+const changeBtn = document.querySelector('#change-btn');
+
+const descText = document.querySelector('#desc-text');
+const descBtn = document.querySelector('#desc-btn');
+
+const counterValue = document.querySelector('#counter-value');
+const incrementBtn = document.querySelector('#increment-btn');
+
+// Console üzerinden elementleri inceleme (Gereksinim kontrolü)
+console.log('Seçilen Başlık Elementi:', title);
+console.log('Başlık Metni:', title.textContent);
+
+// 2. Başlık Metnini ve Stilini Değiştirme
+changeBtn.addEventListener('click', () => {
+  title.textContent = "Güncellenmiş Etkinlik Portalı (DOM Çalışması)";
+  title.style.color = "#2563eb"; // Renk değiştirme
+});
+
+// 3. Açıklama Metnini Değiştirme
+descBtn.addEventListener('click', () => {
+  descText.innerHTML = "<strong>Harika!</strong> DOM üzerinden HTML yapısı başarıyla değiştirildi.";
+});
+
+// 4. Sayaç Mantığı
+let count = 0;
+incrementBtn.addEventListener('click', () => {
+  count++;
+  counterValue.textContent = count;
+});
