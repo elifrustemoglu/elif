@@ -9,7 +9,7 @@
   <path d="M0 250 114 206l111 31 123-73 115 74 92-35 85 34v83H0v-70Z" fill="#172139"/>
   <rect x="65" y="43" width="318" height="225" rx="15" fill="#0d1425" stroke="#8795b8" stroke-width="3"/>
   <path d="M65 76h318" stroke="#8795b8" stroke-opacity=".55" stroke-width="2"/>
-  <circle cx="86" cy="60" r="5" fill="#ff6a82"/><circle cx="105" cy="60" r="5" fill="#ffd166"/><circle cx="124" cy="60" r="5" fill="#70e1bc"/>
+  <circle cx="86" cy="60" r="5" fill="#8E9AAF"/><circle cx="105" cy="60" r="5" fill="#ffd166"/><circle cx="124" cy="60" r="5" fill="#70e1bc"/>
   <rect x="88" y="94" width="91" height="143" rx="9" fill="url(#sun)"/>
   <text x="104" y="197" fill="#25243a" font-family="Arial,sans-serif" font-size="73" font-weight="700">JS</text>
   <path d="M200 105h142m-142 19h99m-99 20h128m-128 20h84m-84 20h132m-132 20h105" stroke="#a7c4e7" stroke-width="5" stroke-linecap="round"/>

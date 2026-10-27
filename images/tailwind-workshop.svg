@@ -9,10 +9,10 @@
   <path d="M44 142q110-93 209-30t194 1q75-47 149-8" stroke="url(#swoosh)" stroke-opacity=".34" stroke-width="32" stroke-linecap="round"/>
   <rect x="119" y="34" width="399" height="231" rx="17" fill="#101f31" stroke="#8cebd9" stroke-opacity=".65" stroke-width="3"/>
   <path d="M119 73h399" stroke="#8eaaa9" stroke-opacity=".5" stroke-width="2"/>
-  <circle cx="141" cy="54" r="5" fill="#ff7e8a"/><circle cx="160" cy="54" r="5" fill="#ffd36e"/><circle cx="179" cy="54" r="5" fill="#6cdbb3"/>
+  <circle cx="141" cy="54" r="5" fill="#8E9AAF"/><circle cx="160" cy="54" r="5" fill="#ffd36e"/><circle cx="179" cy="54" r="5" fill="#6cdbb3"/>
   <rect x="139" y="92" width="118" height="148" rx="12" fill="url(#card)"/>
-  <path d="M139 104q59-27 118 0v52H139v-52Z" fill="#706aff"/>
-  <circle cx="198" cy="127" r="16" fill="#c7c6ff"/><path d="M165 151q33-32 66 0" stroke="#e9e8ff" stroke-width="5" stroke-linecap="round"/>
+  <path d="M139 104q59-27 118 0v52H139v-52Z" fill="#34495E"/>
+  <circle cx="198" cy="127" r="16" fill="#8E9AAF"/><path d="M165 151q33-32 66 0" stroke="#F4F7F6" stroke-width="5" stroke-linecap="round"/>
   <path d="M155 177h86m-86 13h66" stroke="#8095a6" stroke-width="4" stroke-linecap="round"/>
   <rect x="269" y="92" width="229" height="67" rx="11" fill="#e8f6f6"/>
   <path d="M286 111h104m-104 16h178m-178 16h128" stroke="#76959a" stroke-width="4" stroke-linecap="round"/>

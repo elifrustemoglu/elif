@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Kartın içine gelecek HTML yapısı
     card.innerHTML = `
       <div>
-        <span class="text-xs font-bold text-purple-600 uppercase tracking-wider bg-purple-50 px-2 py-1 rounded">
+        <span class="text-xs font-bold text-slate-700 uppercase tracking-wider bg-slate-100 px-2 py-1 rounded">
           ${event.category}
         </span>
         <h3 class="text-lg font-bold text-gray-800 mt-3">${event.title}</h3>
@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
 
       <button onclick="alert('${event.title} etkinliğine tıklandı!')" 
-              class="mt-5 w-full bg-purple-600 text-white py-2 rounded-lg text-sm font-medium hover:bg-purple-700 transition">
+              class="mt-5 w-full bg-slate-700 text-white py-2 rounded-lg text-sm font-medium hover:bg-slate-800 transition">
         Detayları Gör
       </button>
     `;
@@ -162,5 +162,55 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('Eski Input Value:', metinKutusu.value);
     metinKutusu.value = 'Yeni Duyuru Başlığı';
     baslik.classList.add('vurgulu');
+  }
+
+  const filters = document.getElementById('category-filters');
+  const search = document.getElementById('event-search');
+  const results = document.getElementById('event-results');
+  const cards = document.querySelectorAll('.event-card');
+
+  if (filters && search instanceof HTMLInputElement && results && cards.length > 0) {
+    const categoryButtons = Array.from(filters.querySelectorAll('button[data-category]'));
+    const requestedCategory = new URLSearchParams(window.location.search).get('category');
+    const initialButton = categoryButtons.find((button) => button.dataset.category === requestedCategory)
+      ?? categoryButtons.find((button) => button.dataset.category === 'all');
+    let activeCategory = initialButton?.dataset.category ?? 'all';
+
+    categoryButtons.forEach((button) => {
+      button.setAttribute('aria-pressed', String(button === initialButton));
+    });
+
+    const filterEvents = () => {
+      const query = search.value.trim().toLocaleLowerCase('tr');
+      let visibleCount = 0;
+
+      cards.forEach((card) => {
+        const categoryMatches = activeCategory === 'all' || card.dataset.category === activeCategory;
+        const queryMatches = card.textContent.toLocaleLowerCase('tr').includes(query);
+        card.hidden = !categoryMatches || !queryMatches;
+
+        if (!card.hidden) visibleCount++;
+      });
+
+      results.textContent = visibleCount
+        ? `${visibleCount} etkinlik gösteriliyor.`
+        : 'Aramanızla eşleşen etkinlik bulunamadı.';
+    };
+
+    filters.addEventListener('click', (event) => {
+      if (!(event.target instanceof Element)) return;
+
+      const button = event.target.closest('button[data-category]');
+      if (!button || !filters.contains(button)) return;
+
+      activeCategory = button.dataset.category;
+      filters.querySelectorAll('button[data-category]').forEach((filterButton) => {
+        filterButton.setAttribute('aria-pressed', String(filterButton === button));
+      });
+      filterEvents();
+    });
+
+    search.addEventListener('input', filterEvents);
+    filterEvents();
   }
 });
