@@ -7,6 +7,26 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="js/events.js"></script>
+    <style>
+        .event-image {
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .event-image > * {
+            display: none !important;
+        }
+
+        .event-image--software { background-image: url("images/software-seminar.svg"); }
+        .event-image--javascript { background-image: url("images/javascript-web.svg"); }
+        .event-image--mobile { background-image: url("images/mobile-app.svg"); }
+        .event-image--git { background-image: url("images/git-github.svg"); }
+        .event-image--tailwind { background-image: url("images/tailwind-workshop.svg"); }
+        .event-image--ai { background-image: url("images/ai-conference.svg"); }
+        .event-image--cybersecurity { background-image: url("images/cybersecurity.svg"); }
+        .event-image--engineering { background-image: url("images/engineering-career.svg"); }
+    </style>
    
   </head>
 <!-- TAILWIND CSS AÇIK RENGİ NAVBAR (BAĞIMSIZ BİLEŞEN) -->
@@ -53,151 +73,286 @@
 
     </div>
 </nav>
-    <!-- Kartların Listeleneceği Alan -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full">
 
-        <!-- 1. ETKİNLİK KARTI: Python ile Temel Kodlama -->
-        <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-100 flex flex-col justify-between transition-transform duration-300 hover:-translate-y-2">
-            <div>
-                <!-- Üst Kısım / Görsel Alanı ve Etiket -->
-                <div class="relative bg-slate-200 h-48 flex items-center justify-center text-slate-500">
-                    <span class="absolute top-4 left-4 text-sm font-medium text-slate-600 flex items-center gap-2">
-                        <i class="fa-regular fa-image"></i> Etkinlik Görseli
-                    </span>
-                    
-                    
-                </div>
+    <div class="max-w-7xl mx-auto p-6 bg-slate-50">
+  <section id="upcoming-event-countdown" class="mb-6 rounded-2xl bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 p-6 text-white shadow-lg" aria-labelledby="countdown-title">
+    <p class="text-sm font-semibold uppercase tracking-wider text-purple-100">En Yakın Etkinlik</p>
+    <h2 id="countdown-title" class="mt-1 text-2xl font-bold">Yükleniyor...</h2>
+    <p id="countdown-date" class="mt-1 text-sm text-purple-100"></p>
+    <div id="countdown-timer" class="mt-5 flex flex-wrap gap-3" role="timer" aria-label="Etkinliğe kalan süre">
+      <div class="min-w-20 rounded-xl bg-white/15 px-4 py-3 text-center">
+        <span id="countdown-days" class="block text-3xl font-bold">0</span>
+        <span class="text-xs">Gün</span>
+      </div>
+      <div class="min-w-20 rounded-xl bg-white/15 px-4 py-3 text-center">
+        <span id="countdown-hours" class="block text-3xl font-bold">00</span>
+        <span class="text-xs">Saat</span>
+      </div>
+      <div class="min-w-20 rounded-xl bg-white/15 px-4 py-3 text-center">
+        <span id="countdown-minutes" class="block text-3xl font-bold">00</span>
+        <span class="text-xs">Dakika</span>
+      </div>
+      <div class="min-w-20 rounded-xl bg-white/15 px-4 py-3 text-center">
+        <span id="countdown-seconds" class="block text-3xl font-bold">00</span>
+        <span class="text-xs">Saniye</span>
+      </div>
+    </div>
+    <p id="countdown-status" class="mt-4 text-sm font-semibold" aria-live="polite"></p>
+  </section>
 
-                <!-- İçerik Alanı -->
-                <div class="p-6">
-                    <!-- Kategori ve Format -->
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="text-xs font-bold text-indigo-600 tracking-wider uppercase">BİLİŞİM & TEKNOLOJİ</span>
-                  
-                    </div>
+  <!-- Kart Gridi -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 auto-rows-fr gap-6">
 
-                    <!-- Başlık -->
-                    <h3 class="text-xl font-bold text-slate-900 mb-4 leading-snug">
-                        Yapay Zeka
-                    </h3>
-
-                    <!-- Detaylar -->
-                    <div class="space-y-2 text-sm text-slate-600 mb-6">
-                        <div class="flex items-center gap-2.5">
-                            <i class="fa-solid fa-location-dot text-slate-400 w-4"></i>
-                            <span>Bilişim Laboratuvarı</span>
-                        </div>
-                        <div class="flex items-center gap-2.5">
-                            <i class="fa-solid fa-users text-slate-400 w-4"></i>
-                            <span>Kontenjan: <strong class="text-slate-800">200 Kişi</strong></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Alt Buton Alanı -->
-            <div class="p-6 pt-0">
-                <button class="bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 hover:from-pink-500 hover:to-indigo-500 text-white font-semibold text-sm px-7 py-2.5 rounded-full transition-all duration-300 shadow-lg shadow-purple-600/25 hover:shadow-purple-600/40 flex items-center gap-2 group">
-                    Etkinliğe Katıl
-                </button>
-            </div>
+    <!-- Kart 1: Yazılıma Giriş Semineri -->
+    <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col justify-between p-4">
+      <div>
+        <!-- Görsel Alanı -->
+        <div class="event-image event-image--software bg-slate-100 rounded-xl h-48 flex items-center justify-center text-slate-400 gap-2 mb-4" role="img" aria-label="Yazılıma giriş semineri görseli">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+          </svg>
+          <span class="text-xs font-semibold">Etkinlik Görseli</span>
         </div>
 
-        <!-- 2. ETKİNLİK KARTI: Robotik Kodlama -->
-        <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-100 flex flex-col justify-between transition-transform duration-300 hover:-translate-y-2">
-            <div>
-                <!-- Üst Kısım / Görsel Alanı ve Etiket -->
-                <div class="relative bg-slate-200 h-48 flex items-center justify-center text-slate-500">
-                    <span class="absolute top-4 left-4 text-sm font-medium text-slate-600 flex items-center gap-2">
-                        <i class="fa-regular fa-image"></i> Etkinlik Görseli
-                    </span>
-            
-                    
-                </div>
+        <!-- İçerik -->
+        <span class="text-[11px] font-bold text-indigo-600 tracking-wider uppercase">BİLİŞİM & TEKNOLOJİ</span>
+        <h3 class="text-xl font-bold text-slate-800 mt-1 mb-3">Yazılıma Giriş </h3>
 
-                <!-- İçerik Alanı -->
-                <div class="p-6">
-                    <!-- Kategori ve Format -->
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="text-xs font-bold text-indigo-600 tracking-wider uppercase">ROBOTİK & İNOVASYON</span>
-                      
-                    </div>
-
-                    <!-- Başlık -->
-                    <h3 class="text-xl font-bold text-slate-900 mb-4 leading-snug">
-                        Arduino ile Robotik Kodlama ve Tasarım
-                    </h3>
-
-                    <!-- Detaylar -->
-                    <div class="space-y-2 text-sm text-slate-600 mb-6">
-                        <div class="flex items-center gap-2.5">
-                            <i class="fa-solid fa-location-dot text-slate-400 w-4"></i>
-                            <span>Atölye Salonu B</span>
-                        </div>
-                        <div class="flex items-center gap-2.5">
-                            <i class="fa-solid fa-users text-slate-400 w-4"></i>
-                            <span>Kontenjan: <strong class="text-slate-800">160 Kişi</strong></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Alt Buton Alanı -->
-            <div class="p-6 pt-0">
-                <button class="bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 hover:from-pink-500 hover:to-indigo-500 text-white font-semibold text-sm px-7 py-2.5 rounded-full transition-all duration-300 shadow-lg shadow-purple-600/25 hover:shadow-purple-600/40 flex items-center gap-2 group">
-                    Etkinliğe Katıl
-                </button>
-            </div>
+        <div class="space-y-1.5 text-xs text-slate-500 font-medium mb-6">
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+            <span>Amfi 1</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
+            <span>Kontenjan: <strong class="text-slate-900">120 Kişi</strong></span>
+          </div>
         </div>
+      </div>
 
-        <!-- 3. ETKİNLİK KARTI -->
-        <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-100 flex flex-col justify-between transition-transform duration-300 hover:-translate-y-2">
-            <div>
-                <!-- Üst Kısım / Görsel Alanı ve Etiket -->
-                <div class="relative bg-slate-200 h-48 flex items-center justify-center text-slate-500">
-                    <span class="absolute top-4 left-4 text-sm font-medium text-slate-600 flex items-center gap-2">
-                        <i class="fa-regular fa-image"></i> Etkinlik Görseli
-                    </span>
-                
-                </div>
-
-                <!-- İçerik Alanı -->
-                <div class="p-6">
-                    <!-- Kategori ve Format -->
-                    <div class="flex items-center justify-between mb-3">
-                        <span class="text-xs font-bold text-indigo-600 tracking-wider uppercase">MÜHENDİSLİK & GELECEK</span>
-                      
-                    </div>
-
-                    <!-- Başlık -->
-                    <h3 class="text-xl font-bold text-slate-900 mb-4 leading-snug">
-                        Mühendislik ve Yazılım Kariyer
-                    </h3>
-                
-                    <!-- Detaylar -->
-                    <div class="space-y-2 text-sm text-slate-600 mb-6">
-                        <div class="flex items-center gap-2.5">
-                            <i class="fa-solid fa-location-dot text-slate-400 w-4"></i>
-                            <span>Konferans Salonu A</span>
-                        </div>
-                        <div class="flex items-center gap-2.5">
-                            <i class="fa-solid fa-users text-slate-400 w-4"></i>
-                            <span>Kontenjan: <strong class="text-slate-800">150 Kişi</strong></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Alt Buton Alanı -->
-            <div class="p-6 pt-0">
-            
-                  <button class="bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 hover:from-pink-500 hover:to-indigo-500 text-white font-semibold text-sm px-7 py-2.5 rounded-full transition-all duration-300 shadow-lg shadow-purple-600/25 hover:shadow-purple-600/40 flex items-center gap-2 group">
-                    Etkinliğe Katıl 
-                </button>
-            </div>
-        </div>
-
+      <!-- Buton -->
+      <button class="w-fit bg-gradient-to-r from-pink-500 to-indigo-600 text-white text-xs font-semibold px-5 py-2.5 rounded-full shadow-md shadow-purple-500/30 hover:opacity-95 transition-all">
+        Etkinliğe Katıl
+      </button>
     </div>
 
+    <!-- Kart 2: JavaScript ile Web Geliştirme -->
+    <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col justify-between p-4">
+      <div>
+        <div class="event-image event-image--javascript bg-slate-100 rounded-xl h-48 flex items-center justify-center text-slate-400 gap-2 mb-4" role="img" aria-label="JavaScript ile web geliştirme görseli">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+          </svg>
+          <span class="text-xs font-semibold">Etkinlik Görseli</span>
+        </div>
+
+        <span class="text-[11px] font-bold text-indigo-600 tracking-wider uppercase">WEB & YAZILIM</span>
+        <h3 class="text-xl font-bold text-slate-800 mt-1 mb-3">JavaScript ile Web Geliştirme</h3>
+
+        <div class="space-y-1.5 text-xs text-slate-500 font-medium mb-6">
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+            <span>Laboratuvar C</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
+            <span>Kontenjan: <strong class="text-slate-900">300 Kişi</strong></span>
+          </div>
+        </div>
+      </div>
+
+      <button class="w-fit bg-gradient-to-r from-pink-500 to-indigo-600 text-white text-xs font-semibold px-5 py-2.5 rounded-full shadow-md shadow-purple-500/30 hover:opacity-95 transition-all">
+        Etkinliğe Katıl
+      </button>
+    </div>
+
+    <!-- Kart 3: Mobil Uygulama Geliştirme -->
+    <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col justify-between p-4">
+      <div>
+        <div class="event-image event-image--mobile bg-slate-100 rounded-xl h-48 flex items-center justify-center text-slate-400 gap-2 mb-4" role="img" aria-label="Mobil uygulama geliştirme görseli">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+          </svg>
+          <span class="text-xs font-semibold">Etkinlik Görseli</span>
+        </div>
+
+        <span class="text-[11px] font-bold text-indigo-600 tracking-wider uppercase">MOBİL TEKNOLOJİLER</span>
+        <h3 class="text-xl font-bold text-slate-800 mt-1 mb-3">Mobil Uygulama Geliştirme</h3>
+
+        <div class="space-y-1.5 text-xs text-slate-500 font-medium mb-6">
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+            <span>Konferans Salonu B</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
+            <span>Kontenjan: <strong class="text-slate-900">100 Kişi</strong></span>
+          </div>
+        </div>
+      </div>
+
+      <button class="w-fit bg-gradient-to-r from-pink-500 to-indigo-600 text-white text-xs font-semibold px-5 py-2.5 rounded-full shadow-md shadow-purple-500/30 hover:opacity-95 transition-all">
+        Etkinliğe Katıl
+      </button>
+    </div>
+
+    <!-- Kart 4: Git & GitHub Eğitimi -->
+    <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col justify-between p-4">
+      <div>
+        <div class="event-image event-image--git bg-slate-100 rounded-xl h-48 flex items-center justify-center text-slate-400 gap-2 mb-4" role="img" aria-label="Git ve GitHub eğitimi görseli">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+          </svg>
+          <span class="text-xs font-semibold">Etkinlik Görseli</span>
+        </div>
+
+        <span class="text-[11px] font-bold text-indigo-600 tracking-wider uppercase">GELİŞTİRİCİ ARAÇLARI</span>
+        <h3 class="text-xl font-bold text-slate-800 mt-1 mb-3">Git & GitHub Eğitimi</h3>
+
+        <div class="space-y-1.5 text-xs text-slate-500 font-medium mb-6">
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+            <span>Laboratuvar A</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
+            <span>Kontenjan: <strong class="text-slate-900">60 Kişi</strong></span>
+          </div>
+        </div>
+      </div>
+
+      <button class="w-fit bg-gradient-to-r from-pink-500 to-indigo-600 text-white text-xs font-semibold px-5 py-2.5 rounded-full shadow-md shadow-purple-500/30 hover:opacity-95 transition-all">
+        Etkinliğe Katıl
+      </button>
+    </div>
+
+    <!-- Additional events -->
+    <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col justify-between p-4">
+      <div>
+        <div class="event-image event-image--tailwind bg-slate-100 rounded-xl h-48 flex items-center justify-center text-slate-400 gap-2 mb-4" role="img" aria-label="Tailwind CSS workshop görseli">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          <span class="text-xs font-semibold">Etkinlik Görseli</span>
+        </div>
+        <span class="text-[11px] font-bold text-indigo-600 tracking-wider uppercase">WEB & YAZILIM</span>
+        <h3 class="text-xl font-bold text-slate-800 mt-1 mb-3">Tailwind CSS </h3>
+        <div class="space-y-1.5 text-xs text-slate-500 font-medium mb-6">
+          <div class="flex items-center gap-2">
+            <svg class="h-4 w-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+            <span>Yakında duyurulacak</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="h-4 w-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
+             <span>Kontenjan:Yakında duyurulacak</span>
+          </div>
+        </div>
+      </div>
+      <button class="w-fit bg-gradient-to-r from-pink-500 to-indigo-600 text-white text-xs font-semibold px-5 py-2.5 rounded-full shadow-md shadow-purple-500/30 hover:opacity-95 transition-all">Etkinliğe Katıl</button>
+    </div>
+    <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col justify-between p-4">
+      <div>
+        <div class="event-image event-image--ai bg-slate-100 rounded-xl h-48 flex items-center justify-center text-slate-400 gap-2 mb-4" role="img" aria-label="Yapay zeka konferansı görseli">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          <span class="text-xs font-semibold">Etkinlik Görseli</span>
+        </div>
+        <span class="text-[11px] font-bold text-indigo-600 tracking-wider uppercase">BİLİŞİM & TEKNOLOJİ</span>
+        <h3 class="text-xl font-bold text-slate-800 mt-1 mb-3">Yapay Zeka</h3>
+        <div class="space-y-1.5 text-xs text-slate-500 font-medium mb-6">
+          <div class="flex items-center gap-2">
+            <svg class="h-4 w-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+            <span>Salon 1</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="h-4 w-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
+             <span>Kontenjan: <strong class="text-slate-900">1000 Kişi</strong></span>
+          </div>
+        </div>
+      </div>
+      <button class="w-fit bg-gradient-to-r from-pink-500 to-indigo-600 text-white text-xs font-semibold px-5 py-2.5 rounded-full shadow-md shadow-purple-500/30 hover:opacity-95 transition-all">Etkinliğe Katıl</button>
+    </div>
+    <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col justify-between p-4">
+      <div>
+        <div class="event-image event-image--cybersecurity bg-slate-100 rounded-xl h-48 flex items-center justify-center text-slate-400 gap-2 mb-4" role="img" aria-label="Siber güvenlik görseli">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          <span class="text-xs font-semibold">Etkinlik Görseli</span>
+        </div>
+        <span class="text-[11px] font-bold text-indigo-600 tracking-wider uppercase">SİBER GÜVENLİK</span>
+        <h3 class="text-xl font-bold text-slate-800 mt-1 mb-3">Siber Güvenlik </h3>
+        <div class="space-y-1.5 text-xs text-slate-500 font-medium mb-6">
+          <div class="flex items-center gap-2">
+            <svg class="h-4 w-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+            <span>Konferans Salonu C</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="h-4 w-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
+            <span>Kontenjan: <strong class="text-slate-900">125 Kişi</strong></span>
+          </div>
+        </div>
+      </div>
+      <button class="w-fit bg-gradient-to-r from-pink-500 to-indigo-600 text-white text-xs font-semibold px-5 py-2.5 rounded-full shadow-md shadow-purple-500/30 hover:opacity-95 transition-all">Etkinliğe Katıl</button>
+    </div>
+    <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col justify-between p-4">
+      <div>
+        <div class="event-image event-image--engineering bg-slate-100 rounded-xl h-48 flex items-center justify-center text-slate-400 gap-2 mb-4" role="img" aria-label="Mühendislik ve yazılım kariyer etkinliği görseli">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          <span class="text-xs font-semibold">Etkinlik Görseli</span>
+        </div>
+        <span class="text-[11px] font-bold text-indigo-600 tracking-wider uppercase">MÜHENDİSLİK & GELECEK</span>
+        <h3 class="text-xl font-bold text-slate-800 mt-1 mb-3">Mühendislik ve Yazılım Kariyer</h3>
+        <div class="space-y-1.5 text-xs text-slate-500 font-medium mb-6">
+          <div class="flex items-center gap-2">
+            <svg class="h-4 w-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+            <span>Konferans Salonu A</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="h-4 w-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
+            <span>Kontenjan: <strong class="text-slate-900">150 Kişi</strong></span>
+          </div>
+        </div>
+      </div>
+      <button class="w-fit bg-gradient-to-r from-pink-500 to-indigo-600 text-white text-xs font-semibold px-5 py-2.5 rounded-full shadow-md shadow-purple-500/30 hover:opacity-95 transition-all">Etkinliğe Katıl</button>
+    </div>
+  </div>
+</div>
+<script src="js/countdown.js"></script>
 </body>
 </html>

@@ -1,8 +1,8 @@
 const etkinlikAdi = "Yapay Zeka";
-const kategori = "Teknoloji";
-const yer = "Konferans Salonu A";
+const kategori = "Bilişim & Teknoloji";
+const yer = "Salon 1";
 
-let kontenjan = 200;
+let kontenjan = 1000;
 let isOnline = false;
 let kayitDurumuAcik = true;
 let katilimciListesi = null; 
@@ -43,14 +43,14 @@ console.log(tarihYaz(19, 10, 2026));
 
 //  En az 8 etkinlik 
 const etkinlikler = [
-  "Yazılıma Giriş Semineri",
-  "Tailwind CSS Workshop",
-  "Yapay Zeka ve Gelecek Konferansı",
+  "Yazılıma Giriş",
   "JavaScript ile Web Geliştirme",
-  "Siber Güvenlik Webinarı",
   "Mobil Uygulama Geliştirme",
   "Git & GitHub Eğitimi",
-  "UX/UI Tasarım Atölyesi"
+  "Tailwind CSS",
+  "Yapay Zeka",
+  "Siber Güvenlik",
+  "Mühendislik ve Yazılım Kariyer"
 ]
 console.log(" BÜTÜN ETKİNLİK LİSTESİ ");
 
@@ -115,34 +115,52 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// 1. Elemanları Seçme (document.getElementById ve querySelector kullanımı)
-const title = document.getElementById('main-title');
-const changeBtn = document.querySelector('#change-btn');
+document.addEventListener('DOMContentLoaded', () => {
+  // 1. Elemanları Seçme (document.getElementById ve querySelector kullanımı)
+  const title = document.getElementById('main-title');
+  const changeBtn = document.querySelector('#change-btn');
+  const descText = document.querySelector('#desc-text');
+  const descBtn = document.querySelector('#desc-btn');
+  const counterValue = document.querySelector('#counter-value');
+  const incrementBtn = document.querySelector('#increment-btn');
 
-const descText = document.querySelector('#desc-text');
-const descBtn = document.querySelector('#desc-btn');
+  if (title && changeBtn) {
+    console.log('Seçilen Başlık Elementi:', title);
+    console.log('Başlık Metni:', title.textContent);
+    changeBtn.addEventListener('click', () => {
+      title.textContent = 'Güncellenmiş Etkinlik Portalı (DOM Çalışması)';
+      title.style.color = '#2563eb';
+    });
+  }
 
-const counterValue = document.querySelector('#counter-value');
-const incrementBtn = document.querySelector('#increment-btn');
+  if (descText && descBtn) {
+    descBtn.addEventListener('click', () => {
+      descText.innerHTML = '<strong>Harika!</strong> DOM üzerinden HTML yapısı başarıyla değiştirildi.';
+    });
+  }
 
-// Console üzerinden elementleri inceleme (Gereksinim kontrolü)
-console.log('Seçilen Başlık Elementi:', title);
-console.log('Başlık Metni:', title.textContent);
+  if (counterValue && incrementBtn) {
+    let count = 0;
+    incrementBtn.addEventListener('click', () => {
+      count++;
+      counterValue.textContent = count;
+    });
+  }
 
-// 2. Başlık Metnini ve Stilini Değiştirme
-changeBtn.addEventListener('click', () => {
-  title.textContent = "Güncellenmiş Etkinlik Portalı (DOM Çalışması)";
-  title.style.color = "#2563eb"; // Renk değiştirme
-});
+  // DOM alıştırma elemanları yalnızca ilgili alıştırma sayfasında bulunur.
+  const baslik = document.getElementById('portalBasligi');
+  const sayac = document.querySelector('#sayacMiktari');
+  const metinKutusu = document.querySelector('#kullaniciGirdisi');
 
-// 3. Açıklama Metnini Değiştirme
-descBtn.addEventListener('click', () => {
-  descText.innerHTML = "<strong>Harika!</strong> DOM üzerinden HTML yapısı başarıyla değiştirildi.";
-});
+  if (baslik && sayac && metinKutusu) {
+    console.log('Seçilen Başlık Elementi:', baslik);
+    console.log('Mevcut Başlık Metni:', baslik.textContent);
+    console.log('Mevcut Input Değeri:', metinKutusu.value);
 
-// 4. Sayaç Mantığı
-let count = 0;
-incrementBtn.addEventListener('click', () => {
-  count++;
-  counterValue.textContent = count;
+    baslik.textContent = 'Eğitim ve Etkinlik Duyuru Portalı';
+    sayac.textContent = '15';
+    console.log('Eski Input Value:', metinKutusu.value);
+    metinKutusu.value = 'Yeni Duyuru Başlığı';
+    baslik.classList.add('vurgulu');
+  }
 });

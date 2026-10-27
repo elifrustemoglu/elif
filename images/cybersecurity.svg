@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 320" fill="none">
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#101b38"/><stop offset="1" stop-color="#183f5d"/></linearGradient>
+    <linearGradient id="shield" x2="1" y2="1"><stop stop-color="#43efcb"/><stop offset="1" stop-color="#4a9cff"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="15"/></filter>
+  </defs>
+  <rect width="640" height="320" fill="url(#bg)"/>
+  <path d="M0 268h640v52H0z" fill="#0b1529"/>
+  <path d="M0 240h72v28H0zm86-75h74v103H86zm90 37h67v66h-67zm333-60h63v126h-63zm78 50h53v76h-53z" fill="#253d57"/>
+  <path d="M0 241h640M97 187h52m-52 18h52m-52 18h52m378-97h41m-41 18h41m-41 18h41m-41 18h41" stroke="#5a82a2" stroke-opacity=".6" stroke-width="3"/>
+  <circle cx="318" cy="153" r="124" fill="#38e8ce" fill-opacity=".22" filter="url(#glow)"/>
+  <path d="M318 54 407 88v65q0 74-89 119-89-45-89-119V88l89-34Z" fill="url(#shield)" fill-opacity=".18" stroke="url(#shield)" stroke-width="5"/>
+  <path d="M318 78 386 104v49q0 56-68 94-68-38-68-94v-49l68-26Z" fill="#132b46" stroke="#a4fff0" stroke-opacity=".8" stroke-width="2"/>
+  <rect x="286" y="140" width="64" height="53" rx="10" fill="#8cffe4"/>
+  <path d="M300 140v-13a18 18 0 0 1 36 0v13" stroke="#8cffe4" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="318" cy="161" r="5" fill="#17617a"/><path d="M318 166v12" stroke="#17617a" stroke-width="4" stroke-linecap="round"/>
+  <path d="M207 151h-50m285 0h50M252 84l-26-27m184 27 26-27" stroke="#8cefe4" stroke-opacity=".8" stroke-width="2" stroke-dasharray="5 7"/>
+  <circle cx="144" cy="151" r="7" fill="#ffca72"/><circle cx="496" cy="151" r="7" fill="#ffca72"/><circle cx="224" cy="50" r="5" fill="#ffca72"/><circle cx="416" cy="50" r="5" fill="#ffca72"/>
+  <path d="M40 112h21m-10-10v21m528 125h21m-10-10v21" stroke="#8cefe4" stroke-opacity=".7" stroke-width="2"/>
+</svg>
