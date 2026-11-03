@@ -7,19 +7,19 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="min-h-screen bg-slate-50 text-slate-800">
-    <nav class="w-full border-b border-slate-200/80 bg-white px-4 py-4 shadow-sm sm:px-6">
+<body class="min-h-screen bg-gradient-to-br from-[#F8FAFC] via-slate-100 to-slate-200 text-slate-800">
+    <nav class="w-full bg-gradient-to-r from-[#0F172A] to-[#1E3A8A] px-4 py-4 shadow-sm sm:px-6">
         <div class="mx-auto flex max-w-7xl items-center justify-between gap-4">
             <a href="index.html" class="flex min-w-0 items-center gap-3">
-                <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#8E9AAF] to-[#2C3E50] text-xl font-bold text-white shadow-md shadow-[#34495E]/20">
+                <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#2563EB] to-[#1D4ED8] text-xl font-bold text-white shadow-md shadow-blue-900/30">
                     <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
                 </span>
                 <span class="flex min-w-0 flex-col">
-                    <span class="text-sm font-bold leading-tight tracking-wide text-slate-900 sm:text-lg">EĞİTİM VE ETKİNLİK DUYURU PORTALI</span>
-                    <span class="mt-1 text-[10px] uppercase tracking-widest text-slate-500">Etkinlik & Kulüpler</span>
+                    <span class="text-sm font-bold leading-tight tracking-wide text-white sm:text-lg">EĞİTİM VE ETKİNLİK DUYURU PORTALI</span>
+                    <span class="mt-1 text-[10px] uppercase tracking-widest text-slate-300">Etkinlik & Kulüpler</span>
                 </span>
             </a>
-            <a href="index.html" class="flex shrink-0 items-center gap-2 rounded-full bg-gradient-to-r from-[#8E9AAF] via-[#34495E] to-[#2C3E50] px-4 py-2.5 text-sm font-semibold text-[#F4F7F6] shadow-lg shadow-[#8E9AAF]/30 transition-all hover:from-[#A8B1C0] hover:to-[#34495E] hover:shadow-[#8E9AAF]/40 sm:px-6">
+            <a href="index.html" class="flex shrink-0 items-center gap-2 rounded-full bg-gradient-to-r from-[#1E293B] to-[#1E3A8A] px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-slate-900/30 transition-all hover:from-[#27364B] hover:to-[#1E40AF] sm:px-6">
                 <i class="fa-solid fa-arrow-left text-xs" aria-hidden="true"></i>
                 <span>Ana Sayfa</span>
             </a>
@@ -27,27 +27,32 @@
     </nav>
 
     <main class="flex min-h-[calc(100vh-73px)] items-center justify-center px-4 py-10 sm:px-6">
-        <section class="w-full max-w-md rounded-2xl border border-slate-100 bg-white p-6 shadow-xl shadow-slate-200/60 sm:p-8">
+        <section class="w-full max-w-md rounded-2xl border border-slate-300 bg-gradient-to-br from-slate-200 via-blue-100 to-[#748BB8] p-6 shadow-xl shadow-slate-900/10 sm:p-8">
             <div class="mb-8 text-center">
-                <span class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#8E9AAF] to-[#2C3E50] text-2xl text-white shadow-lg shadow-[#34495E]/25">
+                <span class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#2563EB] to-[#1D4ED8] text-2xl text-white shadow-lg shadow-blue-900/25">
                     <i class="fa-solid fa-user" aria-hidden="true"></i>
                 </span>
-                <h1 class="mb-2 text-3xl font-bold text-slate-900">Hoş Geldiniz</h1>
-                <p class="text-sm text-slate-500">Eğitim ve Etkinlik Portalına giriş yapın</p>
+                <h1 class="mb-2 bg-gradient-to-r from-[#0F172A] to-[#1E3A8A] bg-clip-text text-3xl font-bold text-transparent">Hoş Geldiniz</h1>
+                <p class="text-sm text-slate-700">Eğitim ve Etkinlik Portalına giriş yapın</p>
             </div>
 
-            <form action="#" method="POST" class="space-y-5">
+            <div class="mb-6 grid grid-cols-2 rounded-full bg-gradient-to-r from-slate-100 to-slate-200 p-1" aria-label="Hesap işlemi">
+                <button id="show-login" type="button" class="rounded-full bg-gradient-to-r from-[#1E293B] to-[#1E3A8A] px-4 py-2.5 text-sm font-semibold text-white shadow-sm" aria-pressed="true">Giriş Yap</button>
+                <button id="show-signup" type="button" class="rounded-full px-4 py-2.5 text-sm font-semibold text-slate-600 transition hover:text-slate-900" aria-pressed="false">Üye Ol</button>
+            </div>
+
+            <form id="login-form" class="space-y-5">
                 <div>
                     <label for="email" class="mb-1.5 block text-sm font-medium text-slate-700">E-posta Adresi</label>
                     <input id="email" name="email" type="email" autocomplete="email" required
-                        class="w-full rounded-lg border border-slate-300 px-4 py-3 transition focus:border-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-500/20"
+                        class="w-full rounded-lg border border-slate-300 px-4 py-3 transition focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/20"
                         placeholder="ornek@email.com">
                 </div>
 
                 <div>
                     <label for="password" class="mb-1.5 block text-sm font-medium text-slate-700">Şifre</label>
                     <input id="password" name="password" type="password" autocomplete="current-password" required
-                        class="w-full rounded-lg border border-slate-300 px-4 py-3 transition focus:border-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-500/20"
+                        class="w-full rounded-lg border border-slate-300 px-4 py-3 transition focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/20"
                         placeholder="Şifrenizi girin">
                 </div>
 
@@ -56,32 +61,61 @@
                         <input type="checkbox" name="remember" class="mr-2 rounded border-slate-300 text-slate-700 focus:ring-slate-500">
                         Beni Hatırla
                     </label>
-                    <a href="#" class="text-slate-700 transition hover:text-slate-900 hover:underline">Şifremi Unuttum</a>
+                    <a href="#" class="text-blue-700 transition hover:text-blue-800 hover:underline">Şifremi Unuttum</a>
                 </div>
 
-                <button type="submit" class="flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#8E9AAF] via-[#34495E] to-[#2C3E50] py-3 font-semibold text-[#F4F7F6] shadow-lg shadow-[#8E9AAF]/30 transition-all hover:from-[#A8B1C0] hover:to-[#34495E] hover:shadow-[#8E9AAF]/40">
+                <button type="submit" class="flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#1E293B] to-[#1E3A8A] py-3 font-semibold text-white shadow-lg shadow-slate-900/20 transition-all hover:from-[#27364B] hover:to-[#1E40AF]">
                     Giriş Yap
                     <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i>
                 </button>
             </form>
 
+            <form id="signup-form" class="space-y-5" hidden>
+                <div>
+                    <label for="signup-name" class="mb-1.5 block text-sm font-medium text-slate-700">Ad Soyad</label>
+                    <input id="signup-name" name="name" type="text" autocomplete="name" required
+                        class="w-full rounded-lg border border-slate-300 px-4 py-3 transition focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/20"
+                        placeholder="Adınızı ve soyadınızı girin">
+                </div>
+
+                <div>
+                    <label for="signup-email" class="mb-1.5 block text-sm font-medium text-slate-700">E-posta Adresi</label>
+                    <input id="signup-email" name="email" type="email" autocomplete="email" required
+                        class="w-full rounded-lg border border-slate-300 px-4 py-3 transition focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/20"
+                        placeholder="ornek@email.com">
+                </div>
+
+                <div>
+                    <label for="signup-password" class="mb-1.5 block text-sm font-medium text-slate-700">Şifre</label>
+                    <input id="signup-password" name="password" type="password" autocomplete="new-password" minlength="8" required
+                        class="w-full rounded-lg border border-slate-300 px-4 py-3 transition focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/20"
+                        placeholder="En az 8 karakter">
+                </div>
+
+                <button type="submit" class="flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#1E293B] to-[#1E3A8A] py-3 font-semibold text-white shadow-lg shadow-slate-900/20 transition-all hover:from-[#27364B] hover:to-[#1E40AF]">
+                    Üye Ol
+                    <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i>
+                </button>
+            </form>
+            <p id="account-feedback" class="mt-4 bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-sm text-transparent" role="status" aria-live="polite"></p>
+
             <div class="my-6 flex items-center gap-3" aria-hidden="true">
                 <span class="h-px flex-1 bg-slate-200"></span>
-                <span class="bg-white px-1 text-xs font-medium text-slate-500">VEYA</span>
+                <span class="bg-gradient-to-r from-white to-slate-50 px-1 text-xs font-medium text-slate-500">VEYA</span>
                 <span class="h-px flex-1 bg-slate-200"></span>
             </div>
 
             <div class="space-y-3">
-                <button type="button" class="flex w-full items-center justify-center gap-3 rounded-full border-2 border-slate-300 px-4 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-50">
+                <button type="button" class="flex w-full items-center justify-center gap-3 rounded-full border-2 border-slate-300 bg-gradient-to-r from-white to-slate-100 px-4 py-3 text-sm font-medium text-slate-700 transition hover:from-slate-50 hover:to-slate-200">
                     <i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i>
                     Telefon ile devam et
                 </button>
                 <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                    <button type="button" class="flex items-center justify-center gap-3 rounded-full border border-slate-400 px-4 py-3 text-sm font-semibold text-slate-800 transition hover:bg-slate-50">
+                    <button type="button" class="flex items-center justify-center gap-3 rounded-full border border-slate-400 bg-gradient-to-r from-white to-slate-100 px-4 py-3 text-sm font-semibold text-slate-800 transition hover:from-slate-50 hover:to-slate-200">
                         <i class="fa-brands fa-google text-base text-[#4285F4]" aria-hidden="true"></i>
                         Google ile devam et
                     </button>
-                    <button type="button" class="flex items-center justify-center gap-3 rounded-full bg-black px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-800">
+                    <button type="button" class="flex items-center justify-center gap-3 rounded-full bg-gradient-to-r from-slate-900 to-black px-4 py-3 text-sm font-semibold text-white transition hover:from-slate-800 hover:to-slate-900">
                         <i class="fa-brands fa-apple text-lg" aria-hidden="true"></i>
                         Apple ile devam et
                     </button>
@@ -93,5 +127,37 @@
             </p>
         </section>
     </main>
+    <script>
+        const loginTab = document.getElementById('show-login');
+        const signupTab = document.getElementById('show-signup');
+        const loginForm = document.getElementById('login-form');
+        const signupForm = document.getElementById('signup-form');
+        const accountFeedback = document.getElementById('account-feedback');
+
+        const showAccountForm = (mode) => {
+            const isLogin = mode === 'login';
+            loginForm.hidden = !isLogin;
+            signupForm.hidden = isLogin;
+            loginTab.setAttribute('aria-pressed', String(isLogin));
+            signupTab.setAttribute('aria-pressed', String(!isLogin));
+            loginTab.className = isLogin
+                ? 'rounded-full bg-gradient-to-r from-[#1E293B] to-[#1E3A8A] px-4 py-2.5 text-sm font-semibold text-white shadow-sm'
+                : 'rounded-full px-4 py-2.5 text-sm font-semibold text-slate-600 transition hover:text-slate-900';
+            signupTab.className = isLogin
+                ? 'rounded-full px-4 py-2.5 text-sm font-semibold text-slate-600 transition hover:text-slate-900'
+                : 'rounded-full bg-gradient-to-r from-[#1E293B] to-[#1E3A8A] px-4 py-2.5 text-sm font-semibold text-white shadow-sm';
+            accountFeedback.textContent = '';
+        };
+
+        loginTab.addEventListener('click', () => showAccountForm('login'));
+        signupTab.addEventListener('click', () => showAccountForm('signup'));
+
+        [loginForm, signupForm].forEach((form) => {
+            form.addEventListener('submit', (event) => {
+                event.preventDefault();
+                accountFeedback.textContent = 'Form doğrulandı ancak hesap sistemi henüz etkin değil. Bilgileriniz kaydedilmedi.';
+            });
+        });
+    </script>
 </body>
 </html>

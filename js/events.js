@@ -11,6 +11,7 @@ const etkinlikVerileri = [
     typeLabel: "Seminer",
     image: "software",
     imageAlt: "Yazılıma giriş semineri görseli",
+    startsAt: "2026-11-17T10:00",
     location: "Amfi 1",
     capacity: "120 Kişi",
   },
@@ -22,6 +23,7 @@ const etkinlikVerileri = [
     typeLabel: "Eğitim",
     image: "javascript",
     imageAlt: "JavaScript ile web geliştirme görseli",
+    startsAt: "2026-11-20T13:30",
     location: "Laboratuvar C",
     capacity: "300 Kişi",
   },
@@ -33,6 +35,7 @@ const etkinlikVerileri = [
     typeLabel: "Eğitim",
     image: "mobile",
     imageAlt: "Mobil uygulama geliştirme görseli",
+    startsAt: "2026-11-24T11:00",
     location: "Konferans Salonu B",
     capacity: "100 Kişi",
   },
@@ -44,6 +47,7 @@ const etkinlikVerileri = [
     typeLabel: "Eğitim",
     image: "git",
     imageAlt: "Git ve GitHub eğitimi görseli",
+    startsAt: "2026-11-26T14:00",
     location: "Laboratuvar A",
     capacity: "60 Kişi",
   },
@@ -55,6 +59,7 @@ const etkinlikVerileri = [
     typeLabel: "Eğitim",
     image: "tailwind",
     imageAlt: "Tailwind CSS workshop görseli",
+    startsAt: null,
     location: "Yakında duyurulacak",
     capacity: "Yakında duyurulacak",
   },
@@ -66,6 +71,7 @@ const etkinlikVerileri = [
     typeLabel: "Konferans",
     image: "ai",
     imageAlt: "Yapay zeka konferansı görseli",
+    startsAt: "2026-12-03T13:00",
     location: "Salon 1",
     capacity: "1000 Kişi",
   },
@@ -77,6 +83,7 @@ const etkinlikVerileri = [
     typeLabel: "Seminer",
     image: "cybersecurity",
     imageAlt: "Siber güvenlik görseli",
+    startsAt: "2026-11-12T14:00",
     location: "Konferans Salonu C",
     capacity: "125 Kişi",
   },
@@ -88,6 +95,7 @@ const etkinlikVerileri = [
     typeLabel: "Konferans",
     image: "engineering",
     imageAlt: "Mühendislik ve yazılım kariyer etkinliği görseli",
+    startsAt: "2026-11-28T10:00",
     location: "Konferans Salonu A",
     capacity: "150 Kişi",
   },
@@ -155,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     etkinlikVerileri.forEach((etkinlik) => {
       const card = document.createElement('article');
-      card.className = 'event-card bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col justify-between p-4';
+      card.className = 'event-card rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden flex flex-col justify-between p-4';
       card.dataset.category = etkinlik.category;
       card.dataset.eventType = etkinlik.type;
 
@@ -199,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
       typeLabel.prepend(typeIcon);
 
       const title = document.createElement('h3');
-      title.className = 'text-xl font-bold text-slate-800 mt-1 mb-3';
+      title.className = 'mt-1 mb-3 bg-gradient-to-r from-[#0F172A] to-[#1E3A8A] bg-clip-text text-xl font-bold text-transparent';
       title.textContent = etkinlik.title;
 
       const details = document.createElement('div');
@@ -225,6 +233,40 @@ document.addEventListener('DOMContentLoaded', () => {
         return icon;
       };
 
+      const date = document.createElement('div');
+      date.className = etkinlik.startsAt
+        ? 'flex items-center gap-2'
+        : 'flex items-center gap-2 rounded-lg border border-orange-200 bg-gradient-to-r from-orange-50 to-amber-100 px-2 py-1.5 font-semibold text-orange-800';
+      const dateLabel = document.createElement('span');
+      if (etkinlik.startsAt) {
+        const [datePart, timePart] = etkinlik.startsAt.split('T');
+        const [year, month, day] = datePart.split('-').map(Number);
+        const [hours, minutes] = timePart.split(':').map(Number);
+        const startsAt = new Date(year, month - 1, day, hours, minutes);
+        const formattedDate = new Intl.DateTimeFormat('tr-TR', {
+          weekday: 'long',
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric',
+        }).format(startsAt);
+        const formattedTime = new Intl.DateTimeFormat('tr-TR', {
+          hour: '2-digit',
+          minute: '2-digit',
+        }).format(startsAt);
+        const time = document.createElement('time');
+        time.dateTime = etkinlik.startsAt;
+        time.textContent = `${formattedDate} · ${formattedTime}`;
+        dateLabel.append(time);
+      } else {
+        dateLabel.textContent = 'Tarih ve saat yakında duyurulacak';
+      }
+      date.append(
+        createDetailIcon([
+          'M8 7V3m8 4V3M4 11h16M5 5h14a1 1 0 011 1v14H4V6a1 1 0 011-1z',
+        ]),
+        dateLabel,
+      );
+
       const location = document.createElement('div');
       location.className = 'flex items-center gap-2';
       const locationLabel = document.createElement('span');
@@ -248,16 +290,39 @@ document.addEventListener('DOMContentLoaded', () => {
         capacityLabel,
       );
 
-      details.append(location, capacity);
+      details.append(date, location, capacity);
       content.append(image, categoryLabel, typeLabel, title, details);
 
       const joinButton = document.createElement('button');
       joinButton.type = 'button';
-      joinButton.className = 'w-fit bg-gradient-to-r from-[#8E9AAF] via-[#34495E] to-[#2C3E50] text-[#F4F7F6] text-xs font-semibold px-5 py-2.5 rounded-full shadow-md shadow-[#8E9AAF]/30 hover:from-[#A8B1C0] hover:to-[#34495E] transition-all';
+      joinButton.className = 'w-fit bg-gradient-to-r from-[#1E293B] to-[#1E3A8A] text-white text-xs font-semibold px-5 py-2.5 rounded-full shadow-md shadow-slate-900/20 hover:from-[#27364B] hover:to-[#1E40AF] transition-all';
+      joinButton.dataset.action = 'join';
       joinButton.textContent = 'Etkinliğe Katıl';
 
       card.append(content, joinButton);
       eventCardsContainer.append(card);
+    });
+  }
+
+  const authDialog = document.getElementById('auth-dialog');
+  const closeAuthDialog = document.getElementById('close-auth-dialog');
+
+  if (eventCardsContainer && authDialog instanceof HTMLDialogElement && closeAuthDialog instanceof HTMLButtonElement) {
+    eventCardsContainer.addEventListener('click', (event) => {
+      if (!(event.target instanceof Element)) return;
+
+      const joinButton = event.target.closest('button[data-action="join"]');
+      if (!joinButton || !eventCardsContainer.contains(joinButton)) return;
+
+      authDialog.showModal();
+    });
+
+    closeAuthDialog.addEventListener('click', () => {
+      authDialog.close();
+    });
+
+    authDialog.addEventListener('click', (event) => {
+      if (event.target === authDialog) authDialog.close();
     });
   }
 

@@ -26,50 +26,107 @@
         .event-image--cybersecurity { background-image: url("images/cybersecurity.svg"); }
         .event-image--engineering { background-image: url("images/engineering-career.svg"); }
         #type-filters [aria-pressed="true"] {
-            background-image: linear-gradient(to right, #34495e, #2c3e50);
-            color: #f4f7f6;
+            background: linear-gradient(to right, #2563EB, #1D4ED8);
+            color: #fff;
+        }
+
+        #type-filters .category-filter {
+            background: linear-gradient(to right, #fff, #e2e8f0);
+            color: #0F172A;
+        }
+
+        #type-filters .category-filter:hover {
+            background: linear-gradient(to right, #f8fafc, #cbd5e1);
+        }
+
+        #event-cards .event-card > button {
+            background: linear-gradient(to right, #1E293B, #1E3A8A);
+            color: #fff;
+            box-shadow: 0 4px 10px rgb(30 41 59 / 20%);
+        }
+
+        #event-cards .event-card > button:hover {
+            background: linear-gradient(to right, #27364B, #1E40AF);
+        }
+
+        #event-cards .event-card {
+            background-color: #dbeafe;
+            background-image: linear-gradient(to bottom right, #e2e8f0, #dbeafe, #748BB8);
+        }
+
+        #event-cards .event-card .text-slate-500 {
+            color: #334155;
+        }
+
+        #event-cards .event-card .text-slate-400 {
+            color: #475569;
+        }
+
+        #event-cards h3,
+        main > section h2 {
+            background-image: linear-gradient(to right, #0F172A, #1E3A8A);
+            background-clip: text;
+            color: transparent;
         }
 
         .event-card[hidden] {
             display: none;
         }
 
+        .event-card {
+            transition: transform 200ms ease, box-shadow 200ms ease;
+        }
+
+        .event-card:hover {
+            transform: translateY(-4px);
+        }
+
+        #auth-dialog {
+            margin: auto;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .event-card {
+                transition: none;
+            }
+        }
+
         #event-results[data-empty="true"] {
             padding: 0.75rem 1rem;
-            border: 1px solid #fcd34d;
+            border: 1px solid #fdba74;
             border-radius: 0.75rem;
-            background-color: #fffbeb;
-            color: #92400e;
+            background-image: linear-gradient(to right, #fff7ed, #ffedd5);
+            color: #c2410c;
             font-size: 0.875rem;
             font-weight: 600;
         }
     </style>
 </head>
 
-<body class="min-h-screen bg-gray-50 font-sans text-gray-800">
+<body class="min-h-screen bg-gradient-to-br from-[#F8FAFC] via-slate-100 to-slate-200 font-sans text-slate-800">
 
     <main class="mx-auto max-w-7xl px-6 py-10">
-        <a href="index.html" class="mb-6 inline-flex rounded-full bg-gradient-to-r from-[#8E9AAF] via-[#34495E] to-[#2C3E50] px-5 py-2.5 text-sm font-semibold text-[#F4F7F6] shadow-md shadow-[#8E9AAF]/30 transition hover:from-[#A8B1C0] hover:to-[#34495E]">
+        <a href="index.html" class="mb-6 inline-flex rounded-full bg-gradient-to-r from-[#1E293B] to-[#1E3A8A] px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-slate-900/20 transition hover:from-[#27364B] hover:to-[#1E40AF]">
             Ana Sayfaya Dön
         </a>
         <section class="mb-8 text-center">
-            <h2 class="mb-3 text-3xl font-bold text-[#2C3E50]">Tüm Etkinlikler</h2>
+            <h2 class="mb-3 bg-gradient-to-r from-[#0F172A] to-[#1E3A8A] bg-clip-text text-3xl font-bold text-transparent">Tüm Etkinlikler</h2>
             <p class="mx-auto max-w-2xl text-gray-500">Gençlerin ve öğrencilerin eğitimler, seminerler ve sosyal etkinliklerden anında haberdar olmasını sağlayan duyuru platformu.</p>
         </section>
 
         <div class="mb-6">
-            <section class="flex flex-col rounded-2xl bg-white p-4 shadow-sm" aria-label="Etkinlik arama">
-    <label for="event-search" class="mb-2 block text-xs font-semibold uppercase tracking-wider text-slate-500">Etkinliklerde ara</label>
+            <section class="flex flex-col rounded-2xl border border-slate-300 bg-gradient-to-br from-slate-200 via-blue-100 to-[#748BB8] p-4 shadow-sm" aria-label="Etkinlik arama">
+    <label for="event-search" class="mb-2 block text-xs font-semibold uppercase tracking-wider text-slate-700">Etkinliklerde ara</label>
     <input id="event-search" type="search" placeholder="Etkinlik adı yazın"
       class="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm focus:border-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-500/20">
     <div id="type-filters" class="mt-4 flex flex-wrap items-center gap-2" aria-label="Etkinlik türleri">
-      <span class="mr-1 text-xs font-semibold uppercase tracking-wider text-slate-500">Etkinlik türü:</span>
-      <button type="button" class="category-filter rounded-full bg-gradient-to-r from-[#8E9AAF] via-[#34495E] to-[#2C3E50] px-4 py-2 text-sm font-semibold text-[#F4F7F6] shadow-sm shadow-[#8E9AAF]/30 transition hover:from-[#A8B1C0] hover:to-[#34495E]" data-type="all" aria-pressed="true">Tümü</button>
-      <button type="button" class="category-filter rounded-full bg-gradient-to-r from-gray-600 via-gray-700 to-gray-800 px-4 py-2 text-sm font-semibold text-white shadow-sm shadow-gray-700/30 transition hover:from-gray-500 hover:to-gray-700" data-type="education" aria-pressed="false">Eğitim</button>
-      <button type="button" class="category-filter rounded-full bg-gradient-to-r from-gray-600 via-gray-700 to-gray-800 px-4 py-2 text-sm font-semibold text-white shadow-sm shadow-gray-700/30 transition hover:from-gray-500 hover:to-gray-700" data-type="seminar" aria-pressed="false">Seminer</button>
-      <button type="button" class="category-filter rounded-full bg-gradient-to-r from-gray-600 via-gray-700 to-gray-800 px-4 py-2 text-sm font-semibold text-white shadow-sm shadow-gray-700/30 transition hover:from-gray-500 hover:to-gray-700" data-type="conference" aria-pressed="false">Konferans</button>
+      <span class="mr-1 text-xs font-semibold uppercase tracking-wider text-slate-700">Etkinlik türü:</span>
+      <button type="button" class="category-filter rounded-full px-4 py-2 text-sm font-semibold shadow-sm transition" data-type="all" aria-pressed="true">Tümü</button>
+      <button type="button" class="category-filter rounded-full px-4 py-2 text-sm font-semibold shadow-sm transition" data-type="education" aria-pressed="false">Eğitim</button>
+      <button type="button" class="category-filter rounded-full px-4 py-2 text-sm font-semibold shadow-sm transition" data-type="seminar" aria-pressed="false">Seminer</button>
+      <button type="button" class="category-filter rounded-full px-4 py-2 text-sm font-semibold shadow-sm transition" data-type="conference" aria-pressed="false">Konferans</button>
     </div>
-    <p id="event-results" class="mt-3 text-xs text-slate-500" data-empty="false" role="status" aria-live="polite"></p>
+    <p id="event-results" class="mt-3 text-xs text-slate-700" data-empty="false" role="status" aria-live="polite"></p>
   </section>
         </div>
 
@@ -324,6 +381,17 @@
       <button class="w-fit bg-gradient-to-r from-[#8E9AAF] via-[#34495E] to-[#2C3E50] text-[#F4F7F6] text-xs font-semibold px-5 py-2.5 rounded-full shadow-md shadow-[#8E9AAF]/30 hover:from-[#A8B1C0] hover:to-[#34495E] transition-all">Etkinliğe Katıl</button>
     </div>
   </div>
+  <dialog id="auth-dialog" class="w-[calc(100%-2rem)] max-w-sm rounded-2xl border border-slate-300 bg-gradient-to-br from-slate-200 via-blue-100 to-[#748BB8] p-0 shadow-2xl backdrop:bg-slate-900/50" aria-labelledby="auth-dialog-title">
+    <div class="p-6 text-center">
+      <button id="close-auth-dialog" type="button" class="float-right -mt-2 -mr-2 rounded-full px-3 py-1 text-xl leading-6 text-slate-500 hover:bg-slate-100" aria-label="Pencereyi kapat">×</button>
+      <h2 id="auth-dialog-title" class="mb-2 text-xl font-bold text-slate-900">Katılmak için giriş yapın</h2>
+      <p class="mb-6 text-sm text-slate-600">Etkinliğe katılmak için önce hesabınıza giriş yapın veya üye olun.</p>
+      <div class="flex flex-col gap-3 sm:flex-row">
+        <a href="login.html" class="flex-1 rounded-full bg-gradient-to-r from-[#1E293B] to-[#1E3A8A] px-4 py-3 text-sm font-semibold text-white shadow-md shadow-slate-900/20 transition hover:from-[#27364B] hover:to-[#1E40AF]">Giriş Yap</a>
+        <a href="login.html" class="flex-1 rounded-full border border-slate-300 px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50">Üye Ol</a>
+      </div>
+    </div>
+  </dialog>
     </main>
 
     

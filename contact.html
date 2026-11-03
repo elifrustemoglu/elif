@@ -7,81 +7,82 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="min-h-screen bg-slate-50 font-sans text-slate-800">
-    <header class="w-full border-b border-slate-200/80 bg-white px-6 py-4 shadow-sm">
+<body class="min-h-screen bg-gradient-to-br from-[#F8FAFC] via-slate-100 to-slate-200 font-sans text-slate-800">
+    <header class="w-full bg-gradient-to-r from-[#0F172A] to-[#1E3A8A] px-6 py-4 shadow-sm">
         <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 md:flex-row">
-            <a href="index.html" class="flex items-center gap-3 text-slate-900 no-underline">
-                <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-[#8E9AAF] to-[#2C3E50] text-xl font-bold text-white shadow-md shadow-[#34495E]/20">
+            <a href="index.html" class="flex items-center gap-3 text-white no-underline">
+                <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-[#2563EB] to-[#1D4ED8] text-xl font-bold text-white shadow-md shadow-blue-900/30">
                     <i class="fa-solid fa-graduation-cap"></i>
                 </span>
                 <span class="flex flex-col">
                     <span class="text-center text-base font-bold tracking-wide sm:text-lg">EĞİTİM VE ETKİNLİK DUYURU PORTALI</span>
-                    <span class="mt-1 text-center text-[10px] uppercase tracking-widest text-slate-500">Etkinlik & Kulüpler</span>
+                    <span class="mt-1 text-center text-[10px] uppercase tracking-widest text-slate-300">Etkinlik & Kulüpler</span>
                 </span>
             </a>
 
             <nav class="flex flex-wrap items-center justify-center gap-5 text-sm font-medium sm:gap-8">
-                <a href="index.html" class="text-slate-700 transition-colors hover:text-[#2C3E50]">Anasayfa</a>
-                <a href="events.html" class="text-slate-700 transition-colors hover:text-[#2C3E50]">Etkinlikler</a>
-                <a href="index.html" class="text-slate-700 transition-colors hover:text-[#2C3E50]">Blog & Haberler</a>
-                <a href="contact.html" aria-current="page" class="text-slate-700 transition-colors hover:text-[#2C3E50]">İletişim</a>
-                <a href="login.html" class="rounded-full bg-gradient-to-r from-[#8E9AAF] via-[#34495E] to-[#2C3E50] px-6 py-2.5 font-semibold text-[#F4F7F6] shadow-lg shadow-[#8E9AAF]/30 transition-all hover:from-[#A8B1C0] hover:to-[#34495E] hover:shadow-[#8E9AAF]/40">Giriş Yap</a>
+                <a href="index.html" class="text-slate-200 transition-colors hover:text-white">Anasayfa</a>
+                <a href="events.html" class="text-slate-200 transition-colors hover:text-white">Etkinlikler</a>
+                <a href="index.html" class="text-slate-200 transition-colors hover:text-white">Duyurular</a>
+                <a href="contact.html" aria-current="page" class="text-white transition-colors">İletişim</a>
+                <a href="login.html" class="rounded-full bg-gradient-to-r from-[#1E293B] to-[#1E3A8A] px-6 py-2.5 font-semibold text-white shadow-lg shadow-slate-900/30 transition-all hover:from-[#27364B] hover:to-[#1E40AF]">Giriş Yap</a>
             </nav>
         </div>
     </header>
 
     <main class="mx-auto max-w-5xl px-4 py-10">
         <section class="mb-8 text-center">
-            <h2 class="mb-3 text-3xl font-bold text-[#2C3E50]">Bize Ulaşın</h2>
+            <h2 class="mb-3 bg-gradient-to-r from-[#0F172A] to-[#1E3A8A] bg-clip-text text-3xl font-bold text-transparent">Bize Ulaşın</h2>
             <p class="mx-auto max-w-2xl text-slate-500">
                 Etkinlikler hakkında soru sormak veya önerinizi paylaşmak için formu doldurun.
             </p>
         </section>
 
         <div class="grid gap-6 md:grid-cols-3">
-            <section class="rounded-2xl bg-gradient-to-br from-[#8E9AAF] via-[#34495E] to-[#2C3E50] p-6 text-white shadow-xl shadow-[#34495E]/20">
+            <section class="rounded-2xl border border-slate-300 bg-gradient-to-br from-slate-200 via-blue-100 to-[#748BB8] p-6 text-[#0F172A] shadow-xl shadow-slate-900/5">
                 <h3 class="mb-4 text-xl font-bold">İletişim Bilgileri</h3>
 
                 <p class="mb-3">
-                    <strong class="block text-slate-200">E-posta:</strong>
+                    <strong class="block text-slate-600">E-posta:</strong>
                     
                    
                 </p>
                 <p>
-                    <strong class="block text-slate-200">Telefon:</strong>
+                    <strong class="block text-slate-600">Telefon:</strong>
 
 
                 </p>
                 <p>
-                    <strong class="block text-slate-200">Adres:</strong>
+                    <strong class="block text-slate-600">Adres:</strong>
 
                     
                 </p>
             </section>
 
-            <form id="contactForm" class="rounded-2xl border border-slate-100 bg-white p-6 shadow-xl shadow-slate-900/5 md:col-span-2">
+            <form id="contactForm" class="rounded-2xl border border-slate-300 bg-gradient-to-br from-slate-200 via-blue-100 to-[#748BB8] p-6 shadow-xl shadow-slate-900/5 md:col-span-2">
                 <div class="mb-4">
                     <label for="fullname" class="mb-1 block font-semibold text-slate-700">Ad Soyad:</label>
                     <input id="fullname" name="fullname" type="text" required
                         placeholder="Adınızı ve soyadınızı yazın"
-                        class="w-full rounded-xl border border-slate-200 px-3 py-2.5 focus:border-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-500/20">
+                        class="w-full rounded-xl border border-slate-200 px-3 py-2.5 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/20">
                 </div>
 
                 <div class="mb-4">
                     <label for="email" class="mb-1 block font-semibold text-slate-700">E-posta Adresi:</label>
                     <input id="email" name="email" type="email" required
                         placeholder="ornek@email.com"
-                        class="w-full rounded-xl border border-slate-200 px-3 py-2.5 focus:border-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-500/20">
+                        class="w-full rounded-xl border border-slate-200 px-3 py-2.5 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/20">
                 </div>
 
                 <div class="mb-4">
                     <label for="category" class="mb-1 block font-semibold text-slate-700">Konu:</label>
                     <select id="category" name="category" required
-                        class="w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 focus:border-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-500/20">
+                        class="w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/20">
                         <option value="">Bir konu seçin</option>
                         <option value="Bilgi Talebi">Bilgi Talebi</option>
                         <option value="Geri Bildirim">Geri Bildirim</option>
                         <option value="Etkinlik Başvurusu">Etkinlik Başvurusu</option>
+                        <option value="Diğer">Diğer</option>
                     </select>
                 </div>
 
@@ -89,11 +90,11 @@
                     <label for="message" class="mb-1 block font-semibold text-slate-700">Mesajınız:</label>
                     <textarea id="message" name="message" rows="5" required
                         placeholder="Mesajınızı buraya yazın"
-                        class="w-full rounded-xl border border-slate-200 px-3 py-2.5 focus:border-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-500/20"></textarea>
+                        class="w-full rounded-xl border border-slate-200 px-3 py-2.5 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/20"></textarea>
                 </div>
 
                 <button type="submit"
-                    class="rounded-full bg-gradient-to-r from-[#8E9AAF] via-[#34495E] to-[#2C3E50] px-7 py-2.5 font-semibold text-[#F4F7F6] shadow-lg shadow-[#8E9AAF]/30 transition-all hover:from-[#A8B1C0] hover:to-[#34495E] hover:shadow-[#8E9AAF]/40">
+                    class="rounded-full bg-gradient-to-r from-[#1E293B] to-[#1E3A8A] px-7 py-2.5 font-semibold text-white shadow-lg shadow-slate-900/20 transition-all hover:from-[#27364B] hover:to-[#1E40AF]">
                     Gönder <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
                 </button>
                 <p id="form-status" class="mt-4 font-semibold" aria-live="polite"></p>
