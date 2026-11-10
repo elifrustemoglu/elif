@@ -59,24 +59,26 @@
                 </p>
             </section>
 
-            <form id="contactForm" class="rounded-2xl border border-slate-300 bg-gradient-to-br from-slate-200 via-blue-100 to-[#748BB8] p-6 shadow-xl shadow-slate-900/5 md:col-span-2">
+            <form id="contactForm" novalidate class="rounded-2xl border border-slate-300 bg-gradient-to-br from-slate-200 via-blue-100 to-[#748BB8] p-6 shadow-xl shadow-slate-900/5 md:col-span-2">
                 <div class="mb-4">
                     <label for="fullname" class="mb-1 block font-semibold text-slate-700">Ad Soyad:</label>
-                    <input id="fullname" name="fullname" type="text" required
+                    <input id="fullname" name="fullname" type="text" required aria-describedby="fullname-error"
                         placeholder="Adınızı ve soyadınızı yazın"
                         class="w-full rounded-xl border border-slate-200 px-3 py-2.5 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/20">
+                    <p id="fullname-error" class="mt-1 hidden text-sm font-semibold text-red-700"></p>
                 </div>
 
                 <div class="mb-4">
                     <label for="email" class="mb-1 block font-semibold text-slate-700">E-posta Adresi:</label>
-                    <input id="email" name="email" type="email" required
+                    <input id="email" name="email" type="email" required aria-describedby="email-error"
                         placeholder="ornek@email.com"
                         class="w-full rounded-xl border border-slate-200 px-3 py-2.5 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/20">
+                    <p id="email-error" class="mt-1 hidden text-sm font-semibold text-red-700"></p>
                 </div>
 
                 <div class="mb-4">
                     <label for="category" class="mb-1 block font-semibold text-slate-700">Konu:</label>
-                    <select id="category" name="category" required
+                    <select id="category" name="category" required aria-describedby="category-error"
                         class="w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/20">
                         <option value="">Bir konu seçin</option>
                         <option value="Bilgi Talebi">Bilgi Talebi</option>
@@ -84,13 +86,15 @@
                         <option value="Etkinlik Başvurusu">Etkinlik Başvurusu</option>
                         <option value="Diğer">Diğer</option>
                     </select>
+                    <p id="category-error" class="mt-1 hidden text-sm font-semibold text-red-700"></p>
                 </div>
 
                 <div class="mb-4">
                     <label for="message" class="mb-1 block font-semibold text-slate-700">Mesajınız:</label>
-                    <textarea id="message" name="message" rows="5" required
+                    <textarea id="message" name="message" rows="5" required aria-describedby="message-error"
                         placeholder="Mesajınızı buraya yazın"
                         class="w-full rounded-xl border border-slate-200 px-3 py-2.5 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/20"></textarea>
+                    <p id="message-error" class="mt-1 hidden text-sm font-semibold text-red-700"></p>
                 </div>
 
                 <button type="submit"
@@ -105,12 +109,84 @@
     <script>
         const form = document.getElementById("contactForm");
         const status = document.getElementById("form-status");
+        const fullname = document.getElementById("fullname");
+        const email = document.getElementById("email");
+        const category = document.getElementById("category");
+        const message = document.getElementById("message");
+        function showError(errorId, errorMessage) {
+            const error = document.getElementById(errorId);
+            error.textContent = errorMessage;
+            error.classList.remove("hidden");
+        }
+
+        function clearError(errorId) {
+            const error = document.getElementById(errorId);
+            error.textContent = "";
+            error.classList.add("hidden");
+        }
+
+        function clearStatus() {
+            status.textContent = "";
+            status.className = "mt-4 font-semibold";
+        }
+
+        fullname.addEventListener("input", function() {
+            clearError("fullname-error");
+            clearStatus();
+        });
+        email.addEventListener("input", function() {
+            clearError("email-error");
+            clearStatus();
+        });
+        category.addEventListener("change", function() {
+            clearError("category-error");
+            clearStatus();
+        });
+        message.addEventListener("input", function() {
+            clearError("message-error");
+            clearStatus();
+        });
 
         form.addEventListener("submit", function(event) {
             event.preventDefault();
 
-            const fullname = document.getElementById("fullname").value.trim();
-            status.textContent = "Teşekkürler " + fullname + ". Bu örnek sayfada form gönderimi kaydedilmiyor.";
+            let hasErrors = false;
+            status.textContent = "";
+            clearError("fullname-error");
+            clearError("email-error");
+            clearError("category-error");
+            clearError("message-error");
+
+            if (fullname.value.trim() === "") {
+                showError("fullname-error", "Ad soyad alanı zorunludur.");
+                hasErrors = true;
+            }
+
+            if (email.value.trim() === "") {
+                showError("email-error", "E-posta adresi alanı zorunludur.");
+                hasErrors = true;
+            } else if (!email.checkValidity()) {
+                showError("email-error", "Geçerli bir e-posta adresi girin.");
+                hasErrors = true;
+            }
+
+            if (category.value === "") {
+                showError("category-error", "Lütfen bir konu seçin.");
+                hasErrors = true;
+            }
+
+            if (message.value.trim() === "") {
+                showError("message-error", "Mesaj alanı zorunludur.");
+                hasErrors = true;
+            }
+
+            if (hasErrors) {
+                status.textContent = "Lütfen hatalı alanları kontrol edin.";
+                status.className = "mt-4 font-semibold text-red-700";
+                return;
+            }
+
+            status.textContent = "Mesajınız başarıyla gönderildi!";
             status.className = "mt-4 font-semibold text-green-700";
             form.reset();
         });
