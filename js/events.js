@@ -13,7 +13,8 @@ const etkinlikVerileri = [
     imageAlt: "Yazılıma giriş semineri görseli",
     startsAt: "2026-11-17T10:00",
     location: "Amfi 1",
-    capacity: "120 Kişi",
+    capacity: 120,
+    participants: null,
   },
   {
     title: "JavaScript ile Web Geliştirme",
@@ -25,7 +26,8 @@ const etkinlikVerileri = [
     imageAlt: "JavaScript ile web geliştirme görseli",
     startsAt: "2026-11-20T13:30",
     location: "Laboratuvar C",
-    capacity: "300 Kişi",
+    capacity: 300,
+    participants: null,
   },
   {
     title: "Mobil Uygulama Geliştirme",
@@ -37,7 +39,8 @@ const etkinlikVerileri = [
     imageAlt: "Mobil uygulama geliştirme görseli",
     startsAt: "2026-11-24T11:00",
     location: "Konferans Salonu B",
-    capacity: "100 Kişi",
+    capacity: 100,
+    participants: null,
   },
   {
     title: "Git & GitHub Eğitimi",
@@ -49,7 +52,8 @@ const etkinlikVerileri = [
     imageAlt: "Git ve GitHub eğitimi görseli",
     startsAt: "2026-11-26T14:00",
     location: "Laboratuvar A",
-    capacity: "60 Kişi",
+    capacity: 60,
+    participants: null,
   },
   {
     title: "Tailwind CSS",
@@ -61,7 +65,8 @@ const etkinlikVerileri = [
     imageAlt: "Tailwind CSS workshop görseli",
     startsAt: null,
     location: "Yakında duyurulacak",
-    capacity: "Yakında duyurulacak",
+    capacity: null,
+    participants: null,
   },
   {
     title: "Yapay Zeka",
@@ -73,7 +78,8 @@ const etkinlikVerileri = [
     imageAlt: "Yapay zeka konferansı görseli",
     startsAt: "2026-12-03T13:00",
     location: "Salon 1",
-    capacity: "1000 Kişi",
+    capacity: 1000,
+    participants: null,
   },
   {
     title: "Siber Güvenlik",
@@ -85,7 +91,8 @@ const etkinlikVerileri = [
     imageAlt: "Siber güvenlik görseli",
     startsAt: "2026-11-12T14:00",
     location: "Konferans Salonu C",
-    capacity: "125 Kişi",
+    capacity: 125,
+    participants: null,
   },
   {
     title: "Mühendislik ve Yazılım Kariyer",
@@ -97,11 +104,12 @@ const etkinlikVerileri = [
     imageAlt: "Mühendislik ve yazılım kariyer etkinliği görseli",
     startsAt: "2026-11-28T10:00",
     location: "Konferans Salonu A",
-    capacity: "150 Kişi",
+    capacity: 150,
+    participants: null,
   },
 ];
 
-let kontenjan = 1000;
+let kontenjan = 100;
 let isOnline = false;
 let kayitDurumuAcik = true;
 let katilimciListesi = null; 
@@ -117,22 +125,18 @@ console.log("Kayıt Durumu Açık mı?:", kayitDurumuAcik);
 console.log("Katılımcı Listesi:", katilimciListesi);
 console.log("Eğitmen Puanı (Atanmadı):", egitmenPuani);
 
-
-function etiketOlustur(kategori) 
-{
+function etiketOlustur(kategori) {
   return "#" + kategori.toUpperCase();
 }
 
-function kontenjanKontrol(kalan) 
-{
+function kontenjanKontrol(kalan) {
   if (kalan === 0) {
     return "Kontenjan doldu!";
   }
   return "Kalan yer: " + kalan;
 }
 
-function tarihYaz(gun, ay, yil) 
-{
+function tarihYaz(gun, ay, yil) {
   return gun + "/" + ay + "/" + yil;
 }
 
@@ -143,18 +147,17 @@ console.log(tarihYaz(19, 10, 2026));
 const etkinlikler = etkinlikVerileri.map((etkinlik) => etkinlik.title);
 console.log(" BÜTÜN ETKİNLİK LİSTESİ ");
 
-etkinlikler.forEach((etkinlik, indeks) =>
- {
+etkinlikler.forEach((etkinlik, indeks) => {
   console.log(`${indeks + 1}. Etkinlik: ${etkinlik}`);
 });
-console.log(" FİLTRELENMİŞ ETKİNLİKLER");
 
-etkinlikler.forEach((etkinlik) => 
-  {
+console.log(" FİLTRELENMİŞ ETKİNLİKLER");
+etkinlikler.forEach((etkinlik) => {
   if (etkinlik.includes("Workshop") || etkinlik.includes("Eğitimi")) {
     console.log("Seçilen Önemli Etkinlik:", etkinlik);
   }
 });
+
 document.addEventListener('DOMContentLoaded', () => {
   const eventCardsContainer = document.getElementById('event-cards');
 
@@ -182,27 +185,34 @@ document.addEventListener('DOMContentLoaded', () => {
         seminar: ['M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z'],
         conference: ['M8 5a4 4 0 108 0 4 4 0 00-8 0z', 'M4 21v-2a7 7 0 0114 0v2', 'M19 8v6', 'M22 10v2'],
       };
+      
       const typeColors = {
         education: 'border-blue-200 bg-blue-50 text-blue-700',
         seminar: 'border-pink-200 bg-pink-50 text-pink-700',
         conference: 'border-violet-200 bg-violet-50 text-violet-700',
       };
+
       const typeLabel = document.createElement('span');
       typeLabel.className = `ml-2 inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-[11px] font-semibold ${typeColors[etkinlik.type]}`;
+      
       const typeIcon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
       typeIcon.setAttribute('class', 'h-3 w-3');
       typeIcon.setAttribute('fill', 'none');
       typeIcon.setAttribute('stroke', 'currentColor');
       typeIcon.setAttribute('viewBox', '0 0 24 24');
       typeIcon.setAttribute('aria-hidden', 'true');
-      typeIcons[etkinlik.type].forEach((pathData) => {
-        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-        path.setAttribute('stroke-linecap', 'round');
-        path.setAttribute('stroke-linejoin', 'round');
-        path.setAttribute('stroke-width', '2');
-        path.setAttribute('d', pathData);
-        typeIcon.append(path);
-      });
+      
+      if (typeIcons[etkinlik.type]) {
+        typeIcons[etkinlik.type].forEach((pathData) => {
+          const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+          path.setAttribute('stroke-linecap', 'round');
+          path.setAttribute('stroke-linejoin', 'round');
+          path.setAttribute('stroke-width', '2');
+          path.setAttribute('d', pathData);
+          typeIcon.append(path);
+        });
+      }
+      
       typeLabel.textContent = etkinlik.typeLabel;
       typeLabel.prepend(typeIcon);
 
@@ -237,6 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
       date.className = etkinlik.startsAt
         ? 'flex items-center gap-2'
         : 'flex items-center gap-2 rounded-lg border border-orange-200 bg-gradient-to-r from-orange-50 to-amber-100 px-2 py-1.5 font-semibold text-orange-800';
+      
       const dateLabel = document.createElement('span');
       if (etkinlik.startsAt) {
         const [datePart, timePart] = etkinlik.startsAt.split('T');
@@ -260,6 +271,7 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         dateLabel.textContent = 'Tarih ve saat yakında duyurulacak';
       }
+      
       date.append(
         createDetailIcon([
           'M8 7V3m8 4V3M4 11h16M5 5h14a1 1 0 011 1v14H4V6a1 1 0 011-1z',
@@ -279,18 +291,21 @@ document.addEventListener('DOMContentLoaded', () => {
         locationLabel,
       );
 
-      const capacity = document.createElement('div');
-      capacity.className = 'flex items-center gap-2';
-      const capacityLabel = document.createElement('span');
-      capacityLabel.textContent = `Kontenjan: ${etkinlik.capacity}`;
-      capacity.append(
+      const attendance = document.createElement('div');
+      attendance.className = 'flex items-center gap-2';
+      const attendanceLabel = document.createElement('span');
+      attendanceLabel.textContent = etkinlik.capacity === null
+        ? 'Kontenjan bilgisi yakında duyurulacak'
+        : `Kontenjan: ${etkinlik.capacity} kişi`;
+      
+      attendance.append(
         createDetailIcon([
           'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z',
         ]),
-        capacityLabel,
+        attendanceLabel,
       );
 
-      details.append(date, location, capacity);
+      details.append(date, location, attendance);
       content.append(image, categoryLabel, typeLabel, title, details);
 
       const joinButton = document.createElement('button');
@@ -326,7 +341,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 1. Elemanları Seçme (document.getElementById ve querySelector kullanımı)
   const title = document.getElementById('main-title');
   const changeBtn = document.querySelector('#change-btn');
   const descText = document.querySelector('#desc-text');
@@ -335,8 +349,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const incrementBtn = document.querySelector('#increment-btn');
 
   if (title && changeBtn) {
-    console.log('Seçilen Başlık Elementi:', title);
-    console.log('Başlık Metni:', title.textContent);
     changeBtn.addEventListener('click', () => {
       title.textContent = 'Güncellenmiş Etkinlik Portalı (DOM Çalışması)';
       title.style.color = '#2563eb';
@@ -355,23 +367,6 @@ document.addEventListener('DOMContentLoaded', () => {
       count++;
       counterValue.textContent = count;
     });
-  }
-
-  // DOM alıştırma elemanları yalnızca ilgili alıştırma sayfasında bulunur.
-  const baslik = document.getElementById('portalBasligi');
-  const sayac = document.querySelector('#sayacMiktari');
-  const metinKutusu = document.querySelector('#kullaniciGirdisi');
-
-  if (baslik && sayac && metinKutusu) {
-    console.log('Seçilen Başlık Elementi:', baslik);
-    console.log('Mevcut Başlık Metni:', baslik.textContent);
-    console.log('Mevcut Input Değeri:', metinKutusu.value);
-
-    baslik.textContent = 'Eğitim ve Etkinlik Duyuru Portalı';
-    sayac.textContent = '15';
-    console.log('Eski Input Value:', metinKutusu.value);
-    metinKutusu.value = 'Yeni Duyuru Başlığı';
-    baslik.classList.add('vurgulu');
   }
 
   const typeFilters = document.getElementById('type-filters');
@@ -396,8 +391,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       cards.forEach((card) => {
         const typeMatches = activeType === 'all' || card.dataset.eventType === activeType;
-        const title = card.querySelector('h3')?.textContent ?? '';
-        const queryMatches = title.toLocaleLowerCase('tr').includes(query);
+        const cardTitle = card.querySelector('h3')?.textContent ?? '';
+        const queryMatches = cardTitle.toLocaleLowerCase('tr').includes(query);
         card.hidden = !typeMatches || !queryMatches;
 
         if (!card.hidden) visibleCount++;
@@ -424,5 +419,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
     search.addEventListener('input', filterEvents);
     filterEvents();
+  }
+
+  const backendEventList = document.getElementById('backend-event-list');
+  const backendEventsStatus = document.getElementById('backend-events-status');
+
+  if (backendEventList && backendEventsStatus) {
+    fetch('https://10.100.42.74:7217/api/events')
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Sunucu HTTP ${response.status} yanıtı verdi.`);
+        }
+        return response.json();
+      })
+      .then((result) => {
+        console.log("Backend'den gelen tam yanıt:", result);
+        
+        const eventsArray = result.data || result; 
+
+        if (!Array.isArray(eventsArray)) {
+          throw new Error('API yanıtı etkinlik listesi biçiminde değil.');
+        }
+
+        backendEventList.replaceChildren();
+        eventsArray.forEach((event) => {
+          if (!event || typeof event.title !== 'string') {
+            return;
+          }
+
+          const item = document.createElement('li');
+          item.textContent = event.title;
+          backendEventList.append(item);
+        });
+
+        backendEventsStatus.textContent = backendEventList.childElementCount
+          ? `Backend'den ${backendEventList.childElementCount} etkinlik yüklendi.`
+          : 'Backend bağlantısı başarılı; henüz etkinlik bulunmuyor.';
+      })
+      .catch((error) => {
+        console.error('Backend etkinlikleri yüklenemedi:', error);
+        backendEventsStatus.textContent =
+          'Backend API’ye ulaşılamadı. Backend’in çalıştığını, adres/portu ve CORS ayarlarını kontrol edin.';
+        backendEventsStatus.setAttribute('role', 'alert');
+      });
   }
 });

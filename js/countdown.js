@@ -3,13 +3,13 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!countdown) return;
 
   const events = [
-    { title: "Siber Güvenlik", startsAt: "2026-11-12T14:00" },
-    { title: "Yazılıma Giriş", startsAt: "2026-11-17T10:00" },
-    { title: "JavaScript ile Web Geliştirme", startsAt: "2026-11-20T13:30" },
-    { title: "Mobil Uygulama Geliştirme", startsAt: "2026-11-24T11:00" },
-    { title: "Git & GitHub Eğitimi", startsAt: "2026-11-26T14:00" },
-    { title: "Mühendislik ve Yazılım Kariyer", startsAt: "2026-11-28T10:00" },
-    { title: "Yapay Zeka", startsAt: "2026-12-03T13:00" }
+    { title: "Siber Güvenlik", startsAt: "2026-11-12T14:00", capacity: 125 },
+    { title: "Yazılıma Giriş", startsAt: "2026-11-17T10:00", capacity: 120 },
+    { title: "JavaScript ile Web Geliştirme", startsAt: "2026-11-20T13:30", capacity: 300 },
+    { title: "Mobil Uygulama Geliştirme", startsAt: "2026-11-24T11:00", capacity: 100 },
+    { title: "Git & GitHub Eğitimi", startsAt: "2026-11-26T14:00", capacity: 60 },
+    { title: "Mühendislik ve Yazılım Kariyer", startsAt: "2026-11-28T10:00", capacity: 150 },
+    { title: "Yapay Zeka", startsAt: "2026-12-03T13:00", capacity: 1000 }
   ];
   const scheduledEvents = events.map(event => {
     const [date, time] = event.startsAt.split("T");
@@ -20,6 +20,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const title = document.getElementById("countdown-title");
   const dateLabel = document.getElementById("countdown-date");
   const status = document.getElementById("countdown-status");
+  const attendanceEventTitle = document.getElementById("attendance-event-title");
+  const attendanceCount = document.getElementById("attendance-count");
   const units = {
     days: document.getElementById("countdown-days"),
     hours: document.getElementById("countdown-hours"),
@@ -60,12 +62,16 @@ document.addEventListener("DOMContentLoaded", () => {
       title.textContent = "Yaklaşan etkinlik bulunmuyor";
       dateLabel.textContent = "";
       status.textContent = "";
+      attendanceEventTitle.textContent = "Yaklaşan etkinlik bulunmuyor";
+      attendanceCount.textContent = "";
       document.getElementById("countdown-timer").hidden = true;
       return;
     }
 
     document.getElementById("countdown-timer").hidden = false;
     title.textContent = nextEvent.title;
+    attendanceEventTitle.textContent = nextEvent.title;
+    attendanceCount.textContent = `${nextEvent.capacity} kişi`;
     dateLabel.textContent = `${formatDate.format(nextEvent.eventDate)} · ${formatTime.format(nextEvent.eventDate)}`;
 
     const remainingSeconds = Math.max(
