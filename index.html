@@ -3,47 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
     <title>Eğitim Ve Etkinlik Duyuru Portalı</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+      .motivation-card {
+        background-image: linear-gradient(135deg, rgb(226 232 240 / 88%), rgb(219 234 254 / 82%), rgb(116 139 184 / 88%)), url("images/engineering-career.svg");
+        background-position: center;
+        background-size: cover;
+      }
+    </style>
 </head>
-<body class="min-h-screen bg-slate-50 font-sans text-slate-800">
-<nav class="w-full bg-white border-b border-slate-200/80 shadow-sm px-6 py-4">
+<body class="min-h-screen bg-gradient-to-br from-[#F8FAFC] via-slate-100 to-slate-200 font-sans text-slate-800">
+<nav class="w-full bg-gradient-to-r from-[#0F172A] to-[#1E3A8A] shadow-sm px-6 py-4">
     <div class="max-w-7xl mx-auto flex items-center justify-between">
         
         <!-- Sol Kısım: Logo & Başlık -->
         <div class="flex items-center gap-3">
             <!-- Amblem / İkon Kutusu -->
-            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#8E9AAF] to-[#2C3E50] flex items-center justify-center font-bold text-white text-xl shadow-md shadow-[#34495E]/20">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#2563EB] to-[#1D4ED8] flex items-center justify-center font-bold text-white text-xl shadow-md shadow-blue-900/30">
                 <i class="fa-solid fa-graduation-cap"></i>
             </div>
             <!-- Yazı Alanı -->
             <div class="flex flex-col">
-                <span class="font-bold text-lg tracking-wider text-slate-900 leading-none">EĞİTİM VE ETKİNLİK DUYURU PORTALI</span>
-                <span class="text-[10px] text-slate-500 tracking-widest uppercase mt-1">Etkinlik & Kulüpler</span>
+                <span class="font-bold text-lg tracking-wider text-white leading-none">EĞİTİM VE ETKİNLİK DUYURU PORTALI</span>
+                <span class="text-[10px] text-slate-300 tracking-widest uppercase mt-1">Etkinlik & Kulüpler</span>
             </div>
         </div>
 
         <!-- Orta Kısım: Menü Bağlantıları -->
         <ul class="hidden md:flex items-center gap-8 text-sm font-medium">
             <li>
-                <a href="index.html" class="text-slate-700 font-bold transition-colors hover:text-[#2C3E50]">Anasayfa</a>
+                <a href="index.html" class="text-slate-200 font-bold transition-colors hover:text-white">Anasayfa</a>
             </li>
             <li>
-                <a href="events.html" class="text-slate-700 font-bold transition-colors hover:text-[#2C3E50]">Etkinlikler</a>
+                <a href="events.html" class="text-slate-200 font-bold transition-colors hover:text-white">Etkinlikler</a>
             </li>
             
             <li>
-                <a href="index.html" class="text-slate-700 font-bold transition-colors hover:text-[#2C3E50]">Blog & Haberler</a>
+                <a href="duyurular.html" class="text-slate-200 font-bold transition-colors hover:text-white">Duyurular</a>
             </li>
             <li>
-                <a href="contact.html" class="text-slate-700 font-bold transition-colors hover:text-[#2C3E50]">İletişim</a>
+                <a href="contact.html" class="text-slate-200 font-bold transition-colors hover:text-white">İletişim</a>
             </li>
         </ul>
 
         <!-- Sağ Kısım: Giriş Yap Butonu -->
         <div>
-            <a href="login.html" class="bg-gradient-to-r from-[#8E9AAF] via-[#34495E] to-[#2C3E50] hover:from-[#A8B1C0] hover:to-[#34495E] text-[#F4F7F6] font-semibold text-sm px-7 py-2.5 rounded-full transition-all duration-300 shadow-lg shadow-[#8E9AAF]/30 hover:shadow-[#8E9AAF]/40 flex items-center gap-2 group">
+            <a href="login.html" class="bg-gradient-to-r from-[#1E293B] to-[#1E3A8A] hover:from-[#27364B] hover:to-[#1E40AF] text-white font-semibold text-sm px-7 py-2.5 rounded-full transition-all duration-300 shadow-lg shadow-slate-900/30 flex items-center gap-2 group">
                 <span>Giriş Yap</span>
                 <i class="fa-solid fa-arrow-right text-xs transition-transform duration-300 group-hover:translate-x-1"></i>
             </a>
@@ -51,77 +59,156 @@
 
     </div>
 </nav>
-<main class="max-w-7xl mx-auto p-6 bg-slate-50">
+<main class="max-w-7xl mx-auto p-6">
   <div class="mb-8 flex flex-col gap-4 md:flex-row md:items-stretch">
-  <section id="upcoming-event-countdown" class="w-full max-w-sm shrink-0 rounded-2xl bg-gradient-to-r from-[#F4F7F6] via-[#DCE3EA] to-[#C5CED8] p-4 text-[#2C3E50] shadow-lg" aria-labelledby="countdown-title">
-    <p class="text-xs font-semibold uppercase tracking-wider text-slate-600">En Yakın Etkinlik</p>
-    <h2 id="countdown-title" class="mt-1 text-lg font-bold">Yükleniyor...</h2>
-    <p id="countdown-date" class="mt-1 text-xs text-slate-600"></p>
+  <section id="upcoming-event-countdown" class="w-full max-w-sm shrink-0 rounded-2xl border border-slate-300 bg-gradient-to-br from-slate-200 via-blue-100 to-[#748BB8] p-4 text-slate-900 shadow-lg shadow-slate-900/10" aria-labelledby="countdown-title">
+    <p class="text-xs font-semibold uppercase tracking-wider text-slate-700">En Yakın Etkinlik</p>
+    <h2 id="countdown-title" class="mt-1 text-lg font-bold text-slate-900">Yükleniyor...</h2>
+    <p id="countdown-date" class="mt-1 text-xs text-slate-700"></p>
     <div id="countdown-timer" class="mt-3 flex flex-wrap gap-1.5" role="timer" aria-label="Etkinliğe kalan süre">
-      <div class="min-w-14 rounded-lg bg-white/70 px-2 py-1.5 text-center">
+      <div class="min-w-14 rounded-lg border border-white/60 bg-white/40 px-2 py-1.5 text-center">
         <span id="countdown-days" class="block text-xl font-bold">0</span>
-        <span class="text-[10px]">Gün</span>
+        <span class="text-[10px] text-slate-700">Gün</span>
       </div>
-      <div class="min-w-14 rounded-lg bg-white/70 px-2 py-1.5 text-center">
+      <div class="min-w-14 rounded-lg border border-white/60 bg-white/40 px-2 py-1.5 text-center">
         <span id="countdown-hours" class="block text-xl font-bold">00</span>
-        <span class="text-[10px]">Saat</span>
+        <span class="text-[10px] text-slate-700">Saat</span>
       </div>
-      <div class="min-w-14 rounded-lg bg-white/70 px-2 py-1.5 text-center">
+      <div class="min-w-14 rounded-lg border border-white/60 bg-white/40 px-2 py-1.5 text-center">
         <span id="countdown-minutes" class="block text-xl font-bold">00</span>
-        <span class="text-[10px]">Dakika</span>
+        <span class="text-[10px] text-slate-700">Dakika</span>
       </div>
-      <div class="min-w-14 rounded-lg bg-white/70 px-2 py-1.5 text-center">
+      <div class="min-w-14 rounded-lg border border-white/60 bg-white/40 px-2 py-1.5 text-center">
         <span id="countdown-seconds" class="block text-xl font-bold">00</span>
-        <span class="text-[10px]">Saniye</span>
+        <span class="text-[10px] text-slate-700">Saniye</span>
       </div>
     </div>
-    <p id="countdown-status" class="mt-3 text-xs font-semibold" aria-live="polite"></p>
+    <p id="countdown-status" class="mt-3 text-xs font-semibold text-orange-800" aria-live="polite"></p>
   </section>
 
-  <section class="flex-1 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm" aria-labelledby="attendance-title">
-    <div class="flex flex-col justify-between gap-4 sm:flex-row sm:items-start">
-      <div>
-        <p class="text-xs font-semibold uppercase tracking-wider text-slate-500">Yaklaşan etkinlik</p>
-        <h2 id="attendance-title" class="mt-1 text-lg font-bold text-[#2C3E50]">Katılımcı ve Kontenjan</h2>
+  <section class="relative flex-1 overflow-hidden rounded-2xl border border-blue-200/80 bg-gradient-to-br from-white via-blue-50 to-indigo-100 p-5 shadow-lg shadow-blue-900/10" aria-labelledby="attendance-title">
+    <span aria-hidden="true" class="pointer-events-none absolute -right-10 -top-14 h-44 w-44 rounded-full bg-blue-200/30"></span>
+    <div class="relative flex h-full flex-col">
+      <div class="flex items-center gap-3">
+        <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#2563EB] to-[#1E3A8A] text-white shadow-md shadow-blue-900/20" aria-hidden="true">
+          <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M16 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2m16 0v-2a4 4 0 00-3-3.87M14 3.13a4 4 0 010 7.75M14 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+          </svg>
+        </span>
+        <div>
+          <p class="text-[11px] font-bold uppercase tracking-[0.16em] text-blue-800">Yaklaşan Etkinlik</p>
+          <h2 id="attendance-title" class="mt-0.5 text-lg font-bold text-[#0F172A]">Etkinlik Kontenjanı</h2>
+        </div>
       </div>
-      <p class="w-fit rounded-full bg-[#E8EDF2] px-3 py-1 text-xs font-semibold text-[#34495E]">Örnek veri</p>
+      <div class="mt-5 flex flex-1 flex-col justify-between gap-4 rounded-xl border border-white/80 bg-white/70 p-4 shadow-sm backdrop-blur-sm sm:flex-row sm:items-center">
+        <p id="attendance-event-title" class="text-sm font-semibold leading-snug text-slate-700">Etkinlik bilgisi yükleniyor...</p>
+        <div class="shrink-0 sm:text-right">
+          <p class="text-[11px] font-semibold uppercase tracking-wider text-slate-500">Kontenjan</p>
+          <p id="attendance-count" class="mt-0.5 text-2xl font-extrabold leading-none text-blue-900" aria-live="polite"></p>
+        </div>
+      </div>
+      <a href="events.html" class="mt-4 inline-flex w-fit items-center gap-2 text-sm font-semibold text-blue-900 transition-colors hover:text-blue-700">
+        Tüm etkinlikleri gör <span aria-hidden="true">→</span>
+      </a>
     </div>
-    <div class="mt-5 grid grid-cols-2 gap-3">
-      <div class="rounded-xl bg-slate-50 p-4">
-        <span class="block text-sm text-slate-500">Katılımcı</span>
-        <span class="mt-1 block text-2xl font-bold text-[#2C3E50]">87 <span class="text-sm font-medium text-slate-500">kişi</span></span>
-      </div>
-      <div class="rounded-xl bg-slate-50 p-4">
-        <span class="block text-sm text-slate-500">Kalan kontenjan</span>
-        <span class="mt-1 block text-2xl font-bold text-[#2C3E50]">63 <span class="text-sm font-medium text-slate-500">kişi</span></span>
-      </div>
-    </div>
-    <div class="mt-4">
-      <div class="mb-2 flex justify-between text-xs font-medium text-slate-500">
-        <span>Kontenjan doluluk oranı</span>
-        <span>58%</span>
-      </div>
-      <div class="h-2.5 overflow-hidden rounded-full bg-slate-100" role="progressbar" aria-label="Örnek kontenjan doluluk oranı" aria-valuemin="0" aria-valuemax="100" aria-valuenow="58">
-        <div class="h-full w-[58%] rounded-full bg-gradient-to-r from-[#8E9AAF] to-[#2C3E50]"></div>
-      </div>
-    </div>
-    <p class="mt-3 text-xs text-slate-400">Katılımcı ve kontenjan sayıları tanıtım amaçlı örnektir.</p>
   </section>
   </div>
 
-  <section class="mt-8 grid overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm md:grid-cols-2" aria-labelledby="home-hero-title">
-    <div class="flex flex-col items-start justify-center p-6 sm:p-10">
-      <p class="text-sm font-semibold uppercase tracking-wider text-[#8E9AAF]">Birlikte öğren, birlikte geliş</p>
-      <h2 id="home-hero-title" class="mt-3 text-3xl font-bold leading-tight text-[#2C3E50] sm:text-4xl">Yeni fikirler, yeni beceriler, yeni etkinlikler.</h2>
-      <p class="mt-4 max-w-xl text-slate-600">İlgi alanına uygun eğitim ve etkinlikleri keşfet; öğrenme yolculuğuna bugün katıl.</p>
-      <a href="events.html" class="mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#8E9AAF] via-[#34495E] to-[#2C3E50] px-6 py-3 font-semibold text-[#F4F7F6] shadow-md shadow-[#8E9AAF]/30 transition hover:from-[#A8B1C0] hover:to-[#34495E]">
-        Etkinlikleri keşfet <span aria-hidden="true">→</span>
+  <section class="mt-6 grid gap-4 lg:grid-cols-[1.15fr_0.95fr]" aria-label="Etkinlik takvimi ve motivasyon">
+    <div class="rounded-2xl border border-slate-300 bg-gradient-to-br from-slate-200 via-blue-100 to-[#748BB8] p-4 shadow-sm">
+      <div class="flex items-center justify-between gap-3">
+        <h2 class="flex items-center gap-2 text-lg font-bold text-[#0F172A]">
+          <i class="fa-regular fa-calendar-days text-slate-700" aria-hidden="true"></i>
+          Etkinlik Takvimi
+        </h2>
+        <a href="events.html" class="shrink-0 text-sm font-semibold text-slate-800 transition hover:text-slate-950">
+          Tüm Etkinlikler <span aria-hidden="true">→</span>
+        </a>
+      </div>
+      <div class="mt-2 flex items-center justify-between">
+        <button id="calendar-previous" type="button" class="rounded-full p-1.5 text-slate-700 transition hover:bg-white/50 hover:text-slate-950" aria-label="Önceki ay">
+          <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+        </button>
+        <h3 id="calendar-month" class="text-sm font-bold text-[#0F172A]" aria-live="polite"></h3>
+        <button id="calendar-next" type="button" class="rounded-full p-1.5 text-slate-700 transition hover:bg-white/50 hover:text-slate-950" aria-label="Sonraki ay">
+          <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="mt-2 grid grid-cols-7 text-center text-[11px] font-semibold text-slate-700" aria-hidden="true">
+        <span>Pzt</span><span>Sal</span><span>Çar</span><span>Per</span><span>Cum</span><span>Cmt</span><span>Paz</span>
+      </div>
+      <div id="calendar-days" class="mt-1 grid grid-cols-7 gap-y-0 text-center" role="group" aria-label="Ayın günleri"></div>
+      <div class="mt-2 min-h-8 border-t border-slate-400/50 pt-2">
+        <p id="calendar-selection" class="text-xs text-slate-800" aria-live="polite"></p>
+      </div>
+    </div>
+
+    <section class="motivation-card flex min-h-56 flex-col items-start justify-center overflow-hidden rounded-2xl border border-slate-300 p-5 text-slate-900 shadow-lg" aria-labelledby="motivation-title">
+      <p class="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-700">Birlikte öğren, birlikte geliş</p>
+      <h2 id="motivation-title" class="mt-3 max-w-md text-xl font-bold leading-snug text-[#0F172A] drop-shadow sm:text-2xl">Her büyük başarı, bugün atılan küçük bir adımla başlar.</h2>
+      <p class="mt-2 text-xs text-slate-700">Öğrenmeye devam et, sıradaki etkinlikte yerini al.</p>
+      <button id="new-motivation" type="button" class="mt-4 inline-flex items-center gap-2 rounded-full border border-slate-600/50 bg-white/40 px-3.5 py-1.5 text-xs font-semibold text-slate-900 backdrop-blur-sm transition hover:bg-white/60">
+        Yeni motivasyon <span aria-hidden="true">→</span>
+      </button>
+    </section>
+  </section>
+
+  <section class="mt-8" aria-labelledby="featured-events-title">
+    <div class="mb-4 flex items-center justify-between gap-3">
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-wider text-blue-800">Takvimine ekle</p>
+        <h2 id="featured-events-title" class="mt-1 text-xl font-bold text-slate-900">Öne Çıkan Etkinlikler</h2>
+      </div>
+      <a href="events.html" class="shrink-0 text-sm font-semibold text-blue-900 transition hover:text-blue-700">
+        Tüm etkinlikler <span aria-hidden="true">→</span>
       </a>
     </div>
-    <img src="images/home-learning.svg" alt="İki öğrencinin dizüstü bilgisayarda birlikte çalıştığı teknoloji eğitimi illüstrasyonu" class="h-full min-h-64 w-full object-cover md:min-h-96">
+    <div id="featured-event-list" class="grid gap-4 md:grid-cols-3" aria-live="polite"></div>
+  </section>
+
+  <section class="mt-8" aria-labelledby="recent-announcements-title">
+    <div class="mb-4 flex items-center justify-between gap-3">
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-wider text-blue-800">Portaldan haberler</p>
+        <h2 id="recent-announcements-title" class="mt-1 text-xl font-bold text-slate-900">Son Duyurular</h2>
+      </div>
+      <a href="duyurular.html" class="shrink-0 text-sm font-semibold text-blue-900 transition hover:text-blue-700">
+        Tüm duyurular <span aria-hidden="true">→</span>
+      </a>
+    </div>
+    <div class="grid gap-4 md:grid-cols-3">
+      <article class="rounded-2xl border border-blue-200 bg-gradient-to-br from-white via-blue-50 to-indigo-100 p-5 shadow-sm">
+        <div class="flex items-center gap-2 text-sm font-semibold text-blue-900">
+          <i class="fa-solid fa-people-group" aria-hidden="true"></i>
+          <span>Genel · Duyuru</span>
+        </div>
+        <h3 class="mt-4 text-base font-bold leading-snug text-slate-900">Yeni Dönem Kulüp ve Etkinlik Başvuruları Başladı!</h3>
+        <p class="mt-2 text-sm leading-relaxed text-slate-600">Öğrencilerimizin katılabileceği yeni dönem sosyal ve akademik kulüp başvuru tarihleri açıklandı.</p>
+        <p class="mt-4 border-t border-blue-200 pt-3 text-xs font-semibold text-blue-900">Son başvuru: Cuma</p>
+      </article>
+      <article class="rounded-2xl border border-violet-200 bg-gradient-to-br from-white via-violet-50 to-blue-100 p-5 shadow-sm">
+        <div class="flex items-center gap-2 text-sm font-semibold text-violet-900">
+          <i class="fa-solid fa-code" aria-hidden="true"></i>
+          <span>Akademik · Proje</span>
+        </div>
+        <h3 class="mt-4 text-base font-bold leading-snug text-slate-900">Yazılım Atölyesi Proje Teslim Tarihi Hakkında</h3>
+      <p class="mt-2 text-sm leading-relaxed text-slate-600">Web portalları için son kaynak kod teslim tarihi güncellendi.Detaylar için Git rehberine göz atın.</p>
+        <p class="mt-4 border-t border-violet-200 pt-3 text-xs font-semibold text-violet-900">Proje bilgilendirmesi</p>
+      </article>
+      <article class="rounded-2xl border border-emerald-200 bg-gradient-to-br from-white via-emerald-50 to-teal-100 p-5 shadow-sm">
+        <div class="flex items-center gap-2 text-sm font-semibold text-emerald-900">
+          <i class="fa-solid fa-code" aria-hidden="true"></i>
+          <span>Etkinlik · Seminer</span>
+        </div>
+        <h3 class="mt-4 text-base font-bold leading-snug text-slate-900">Sektör Buluşmaları: Frontend Dünyasında Kariyer Sohbeti</h3>
+        <p class="mt-2 text-sm leading-relaxed text-slate-600">Sektörden deneyimli yazılımcıların katılacağı kariyer sohbetimize tüm öğrencilerimiz davetlidir.</p>
+        <p class="mt-4 border-t border-emerald-200 pt-3 text-xs font-semibold text-emerald-900">Kariyer sohbeti</p>
+      </article>
+    </div>
   </section>
 
 </main>
+
 <script src="js/countdown.js"></script>
 </body>
 </html>

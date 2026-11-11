@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="EgitimPortali.API/EgitimPortali.API.csproj" />
+  <Project Path="EgitimPortali.Core/EgitimPortali.Core.csproj" />
+  <Project Path="EgitimPortali.Tests/EgitimPortali.Tests.csproj" Id="3c4ef614-a1e2-42b6-b1eb-f4974040ec55" />
+</Solution>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <title>Duyurular - Eğitim ve Etkinlik Portalı</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/announcements.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-content">
+            <a href="index.html" class="brand">
+                <span class="brand-icon" aria-hidden="true">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </span>
+                <span class="brand-copy">
+                    <span class="brand-title">EĞİTİM VE ETKİNLİK DUYURU PORTALI</span>
+                    <span class="brand-subtitle">Etkinlik &amp; Kulüpler</span>
+                </span>
+            </a>
+
+            <nav class="main-nav" aria-label="Ana menü">
+                <a href="index.html">Anasayfa</a>
+                <a href="events.html">Etkinlikler</a>
+                <a href="duyurular.html" aria-current="page">Duyurular</a>
+                <a href="contact.html">İletişim</a>
+                <a href="login.html" class="login-link">Giriş Yap</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <section class="page-intro" aria-labelledby="announcements-title">
+            <div class="page-intro-heading">
+                <p class="eyebrow">Portalden haberler</p>
+                <h1 id="announcements-title">Güncel Duyurular</h1>
+                <p>Kulüp başvuruları, proje teslimleri ve yaklaşan etkinliklerle ilgili duyuruları ara veya kategoriye göre filtrele.</p>
+            </div>
+            <div class="announcement-tools">
+                <label class="sr-only" for="announcement-search">Duyurularda ara</label>
+                <div class="announcement-search">
+                    <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                    <input id="announcement-search" type="search" placeholder="Duyurularda ara..." autocomplete="off">
+                </div>
+                <div class="announcement-filters" role="group" aria-label="Duyuruları kategoriye göre filtrele">
+                    <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">Tümü</button>
+                    <button class="filter-button" type="button" data-filter="Etkinlik" aria-pressed="false">Etkinlik</button>
+                    <button class="filter-button" type="button" data-filter="Genel" aria-pressed="false">Genel</button>
+                    <button class="filter-button" type="button" data-filter="Akademik" aria-pressed="false">Akademik</button>
+                </div>
+            </div>
+        </section>
+
+        <p id="announcement-result-count" class="announcement-result-count" role="status" aria-live="polite"></p>
+        <section id="current-announcements" class="announcement-grid" aria-label="Güncel duyurular">
+            <article class="announcement-card announcement-card--blue" data-category="Genel">
+                <div class="card-top-line" aria-hidden="true"></div>
+                <div class="card-meta">
+                    <span class="card-icon" aria-hidden="true">
+                        <i class="fa-solid fa-people-group"></i>
+                    </span>
+                    <div class="tags">
+                        <span class="tag">Genel</span>
+                        <span class="tag tag--neutral">Duyuru</span>
+                    </div>
+                </div>
+                <h2>Yeni Dönem Kulüp ve Etkinlik Başvuruları Başladı!</h2>
+                <p>Öğrencilerimizin katılabileceği yeni dönem sosyal ve akademik kulüp başvuru tarihleri açıklandı.</p>
+                <div class="card-footer">
+                    <i class="fa-regular fa-clock" aria-hidden="true"></i>
+                    Son başvuru: Cuma
+                </div>
+            </article>
+
+            <article class="announcement-card announcement-card--violet" data-category="Akademik">
+                <div class="card-top-line" aria-hidden="true"></div>
+                <div class="card-meta">
+                    <span class="card-icon" aria-hidden="true">
+                        <i class="fa-solid fa-code"></i>
+                    </span>
+                    <div class="tags">
+                        <span class="tag">Akademik</span>
+                        <span class="tag tag--neutral">Proje</span>
+                    </div>
+                </div>
+                <h2>Yazılım Atölyesi Proje Teslim Tarihi Hakkında</h2>
+                <p>Stajyer ve katılımcıların geliştirdiği web portalları için son kaynak kod teslim tarihi güncellenmiştir. Detaylar için Git rehberine göz atın.</p>
+                <div class="card-footer">
+                    <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+                    Proje bilgilendirmesi
+                </div>
+            </article>
+
+            <article class="announcement-card announcement-card--green" data-category="Etkinlik">
+                <div class="card-top-line" aria-hidden="true"></div>
+                <div class="card-meta">
+                    <span class="card-icon" aria-hidden="true">
+                        <i class="fa-solid fa-code"></i>
+                    </span>
+                    <div class="tags">
+                        <span class="tag">Etkinlik</span>
+                        <span class="tag tag--neutral">Seminer</span>
+                    </div>
+                </div>
+                <h2>Sektör Buluşmaları: Frontend Dünyasında Kariyer Sohbeti</h2>
+                <p>Sektörden deneyimli yazılımcıların katılacağı kariyer sohbetimize tüm öğrencilerimiz davetlidir.</p>
+                <div class="card-footer">
+                    <i class="fa-solid fa-users" aria-hidden="true"></i>
+                    Kariyer sohbeti
+                </div>
+            </article>
+
+            <article class="announcement-card announcement-card--blue" data-category="Etkinlik">
+                <div class="card-top-line" aria-hidden="true"></div>
+                <div class="card-meta">
+                    <span class="card-icon" aria-hidden="true">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </span>
+                    <div class="tags">
+                        <span class="tag">Etkinlik</span>
+                        <span class="tag tag--neutral">Seminer</span>
+                    </div>
+                </div>
+                <h2>Siber Güvenlik Semineri 28 Kasım'da</h2>
+                <p>Siber güvenliğe giriş semineri 28 Kasım saat 14.00'te Konferans Salonu C'de gerçekleştirilecek.</p>
+                <div class="card-footer">
+                    <i class="fa-regular fa-calendar" aria-hidden="true"></i>
+                    28 Kasım · 14.00
+                </div>
+            </article>
+
+            <article class="announcement-card announcement-card--violet" data-category="Etkinlik">
+                <div class="card-top-line" aria-hidden="true"></div>
+                <div class="card-meta">
+                    <span class="card-icon" aria-hidden="true">
+                        <i class="fa-brands fa-js"></i>
+                    </span>
+                    <div class="tags">
+                        <span class="tag">Etkinlik</span>
+                        <span class="tag tag--neutral">Eğitim</span>
+                    </div>
+                </div>
+                <h2>JavaScript ile Web Geliştirme Eğitimi</h2>
+                <p>Web geliştirme eğitiminde JavaScript temellerini öğrenin. Etkinlik 12 Aralık saat 13.30'da Laboratuvar C'de başlayacak.</p>
+                <div class="card-footer">
+                    <i class="fa-regular fa-calendar" aria-hidden="true"></i>
+                    12 Aralık · 13.30
+                </div>
+            </article>
+
+            <article class="announcement-card announcement-card--green" data-category="Etkinlik">
+                <div class="card-top-line" aria-hidden="true"></div>
+                <div class="card-meta">
+                    <span class="card-icon" aria-hidden="true">
+                        <i class="fa-solid fa-mobile-screen-button"></i>
+                    </span>
+                    <div class="tags">
+                        <span class="tag">Etkinlik</span>
+                        <span class="tag tag--neutral">Eğitim</span>
+                    </div>
+                </div>
+                <h2>Mobil Uygulama Geliştirme Eğitimi</h2>
+                <p>Mobil uygulama geliştirme eğitiminde yeni teknolojileri keşfedin. 19 Aralık saat 11.00'de Konferans Salonu B'de buluşalım.</p>
+                <div class="card-footer">
+                    <i class="fa-regular fa-calendar" aria-hidden="true"></i>
+                    19 Aralık · 11.00
+                </div>
+            </article>
+
+            <article class="announcement-card announcement-card--blue" data-category="Etkinlik">
+                <div class="card-top-line" aria-hidden="true"></div>
+                <div class="card-meta">
+                    <span class="card-icon" aria-hidden="true">
+                        <i class="fa-solid fa-brain"></i>
+                    </span>
+                    <div class="tags">
+                        <span class="tag">Etkinlik</span>
+                        <span class="tag tag--neutral">Konferans</span>
+                    </div>
+                </div>
+                <h2>Yapay Zeka Konferansı İçin Kayıtlar Açık</h2>
+                <p>Yapay Zeka konferansı 23 Ocak saat 13.00'te Salon 1'de yapılacak. Etkinlik kontenjanı 300 kişiyle sınırlıdır.</p>
+                <div class="card-footer">
+                    <i class="fa-regular fa-calendar" aria-hidden="true"></i>
+                    23 Ocak · 13.00
+                </div>
+            </article>
+        </section>
+        <p id="announcement-empty-state" class="announcement-empty-state" hidden>Aramanla eşleşen bir duyuru bulunamadı. Farklı bir kelime veya kategori deneyebilirsin.</p>
+    </main>
+    <script src="js/announcements.js"></script>
+</body>
+</html>
