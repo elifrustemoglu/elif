@@ -153,6 +153,60 @@
     </section>
   </section>
 
+  <section class="mt-8" aria-labelledby="featured-events-title">
+    <div class="mb-4 flex items-center justify-between gap-3">
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-wider text-blue-800">Takvimine ekle</p>
+        <h2 id="featured-events-title" class="mt-1 text-xl font-bold text-slate-900">Öne Çıkan Etkinlikler</h2>
+      </div>
+      <a href="events.html" class="shrink-0 text-sm font-semibold text-blue-900 transition hover:text-blue-700">
+        Tüm etkinlikler <span aria-hidden="true">→</span>
+      </a>
+    </div>
+    <div id="featured-event-list" class="grid gap-4 md:grid-cols-3" aria-live="polite"></div>
+  </section>
+
+  <section class="mt-8" aria-labelledby="recent-announcements-title">
+    <div class="mb-4 flex items-center justify-between gap-3">
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-wider text-blue-800">Portaldan haberler</p>
+        <h2 id="recent-announcements-title" class="mt-1 text-xl font-bold text-slate-900">Son Duyurular</h2>
+      </div>
+      <a href="duyurular.html" class="shrink-0 text-sm font-semibold text-blue-900 transition hover:text-blue-700">
+        Tüm duyurular <span aria-hidden="true">→</span>
+      </a>
+    </div>
+    <div class="grid gap-4 md:grid-cols-3">
+      <article class="rounded-2xl border border-blue-200 bg-gradient-to-br from-white via-blue-50 to-indigo-100 p-5 shadow-sm">
+        <div class="flex items-center gap-2 text-sm font-semibold text-blue-900">
+          <i class="fa-solid fa-people-group" aria-hidden="true"></i>
+          <span>Genel · Duyuru</span>
+        </div>
+        <h3 class="mt-4 text-base font-bold leading-snug text-slate-900">Yeni Dönem Kulüp ve Etkinlik Başvuruları Başladı!</h3>
+        <p class="mt-2 text-sm leading-relaxed text-slate-600">Öğrencilerimizin katılabileceği yeni dönem sosyal ve akademik kulüp başvuru tarihleri açıklandı.</p>
+        <p class="mt-4 border-t border-blue-200 pt-3 text-xs font-semibold text-blue-900">Son başvuru: Cuma</p>
+      </article>
+      <article class="rounded-2xl border border-violet-200 bg-gradient-to-br from-white via-violet-50 to-blue-100 p-5 shadow-sm">
+        <div class="flex items-center gap-2 text-sm font-semibold text-violet-900">
+          <i class="fa-solid fa-code" aria-hidden="true"></i>
+          <span>Akademik · Proje</span>
+        </div>
+        <h3 class="mt-4 text-base font-bold leading-snug text-slate-900">Yazılım Atölyesi Proje Teslim Tarihi Hakkında</h3>
+        <p class="mt-2 text-sm leading-relaxed text-slate-600">Web portalları için son kaynak kod teslim tarihi güncellendi. Detaylar için Git rehberine göz atın.</p>
+        <p class="mt-4 border-t border-violet-200 pt-3 text-xs font-semibold text-violet-900">Proje bilgilendirmesi</p>
+      </article>
+      <article class="rounded-2xl border border-emerald-200 bg-gradient-to-br from-white via-emerald-50 to-teal-100 p-5 shadow-sm">
+        <div class="flex items-center gap-2 text-sm font-semibold text-emerald-900">
+          <i class="fa-solid fa-code" aria-hidden="true"></i>
+          <span>Etkinlik · Seminer</span>
+        </div>
+        <h3 class="mt-4 text-base font-bold leading-snug text-slate-900">Sektör Buluşmaları: Frontend Dünyasında Kariyer Sohbeti</h3>
+        <p class="mt-2 text-sm leading-relaxed text-slate-600">Sektörden deneyimli yazılımcıların katılacağı kariyer sohbetimize tüm öğrencilerimiz davetlidir.</p>
+        <p class="mt-4 border-t border-emerald-200 pt-3 text-xs font-semibold text-emerald-900">Kariyer sohbeti</p>
+      </article>
+    </div>
+  </section>
+
 </main>
 
 <script src="js/countdown.js"></script>

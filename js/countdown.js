@@ -3,13 +3,13 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!countdown) return;
 
   const events = [
-    { title: "Siber Güvenlik", startsAt: "2026-11-12T14:00", capacity: 125 },
-    { title: "Yazılıma Giriş", startsAt: "2026-11-17T10:00", capacity: 120 },
-    { title: "JavaScript ile Web Geliştirme", startsAt: "2026-11-20T13:30", capacity: 300 },
-    { title: "Mobil Uygulama Geliştirme", startsAt: "2026-11-24T11:00", capacity: 100 },
-    { title: "Git & GitHub Eğitimi", startsAt: "2026-11-26T14:00", capacity: 60 },
-    { title: "Mühendislik ve Yazılım Kariyer", startsAt: "2026-11-28T10:00", capacity: 150 },
-    { title: "Yapay Zeka", startsAt: "2026-12-03T13:00", capacity: 1000 }
+    { title: "Siber Güvenlik", startsAt: "2026-11-28T14:00", capacity: 125, location: "Konferans Salonu C" },
+    { title: "Yazılıma Giriş", startsAt: "2026-12-05T10:00", capacity: 120, location: "Amfi 1" },
+    { title: "JavaScript ile Web Geliştirme", startsAt: "2026-12-12T13:30", capacity: 300, location: "Laboratuvar C" },
+    { title: "Mobil Uygulama Geliştirme", startsAt: "2026-12-19T11:00", capacity: 100, location: "Konferans Salonu B" },
+    { title: "Git & GitHub Eğitimi", startsAt: "2027-01-09T14:00", capacity: 60, location: "Laboratuvar A" },
+    { title: "Mühendislik ve Yazılım Kariyer", startsAt: "2027-01-16T10:00", capacity: 150, location: "Konferans Salonu A" },
+    { title: "Yapay Zeka", startsAt: "2027-01-23T13:00", capacity: 300, location: "Salon 1" }
   ];
   const scheduledEvents = events.map(event => {
     const [date, time] = event.startsAt.split("T");
@@ -38,6 +38,45 @@ document.addEventListener("DOMContentLoaded", () => {
     hour: "2-digit",
     minute: "2-digit"
   });
+  const featuredEventList = document.getElementById("featured-event-list");
+  if (featuredEventList) {
+    const upcomingEvents = scheduledEvents
+      .filter(event => event.eventDate > new Date())
+      .sort((first, second) => first.eventDate - second.eventDate)
+      .slice(0, 3);
+
+    if (upcomingEvents.length === 0) {
+      const emptyState = document.createElement("p");
+      emptyState.className = "text-sm text-slate-600";
+      emptyState.textContent = "Şu anda öne çıkan yaklaşan etkinlik bulunmuyor.";
+      featuredEventList.append(emptyState);
+    } else {
+      upcomingEvents.forEach(event => {
+        const card = document.createElement("article");
+        card.className = "flex flex-col rounded-2xl border border-slate-300 bg-gradient-to-br from-white via-blue-50 to-indigo-100 p-5 shadow-sm";
+
+        const date = document.createElement("p");
+        date.className = "text-xs font-semibold uppercase tracking-wide text-blue-800";
+        date.textContent = `${formatDate.format(event.eventDate)} · ${formatTime.format(event.eventDate)}`;
+
+        const eventTitle = document.createElement("h3");
+        eventTitle.className = "mt-2 text-lg font-bold text-slate-900";
+        eventTitle.textContent = event.title;
+
+        const details = document.createElement("p");
+        details.className = "mt-3 text-sm text-slate-600";
+        details.textContent = `${event.location} · Kontenjan: ${event.capacity} kişi`;
+
+        const link = document.createElement("a");
+        link.className = "mt-5 inline-flex w-fit items-center gap-2 text-sm font-semibold text-blue-900 transition hover:text-blue-700";
+        link.href = "events.html";
+        link.textContent = "Etkinlik detayları";
+
+        card.append(date, eventTitle, details, link);
+        featuredEventList.append(card);
+      });
+    }
+  }
   const formatMonth = new Intl.DateTimeFormat("tr-TR", {
     month: "long",
     year: "numeric"
