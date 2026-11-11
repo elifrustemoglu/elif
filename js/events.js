@@ -109,8 +109,7 @@ const etkinlikVerileri = [
   },
 ];
 
-let kontenjan = 100;
-let isOnline = false;
+let kontenjan = 300;
 let kayitDurumuAcik = true;
 let katilimciListesi = null; 
 let egitmenPuani; 
@@ -120,7 +119,6 @@ console.log("Etkinlik Adı:", etkinlikAdi);
 console.log("Kategori:", kategori);
 console.log("Yer:", yer);
 console.log("Kontenjan:", kontenjan);
-console.log("Çevrim İçi mi?:", isOnline);
 console.log("Kayıt Durumu Açık mı?:", kayitDurumuAcik);
 console.log("Katılımcı Listesi:", katilimciListesi);
 console.log("Eğitmen Puanı (Atanmadı):", egitmenPuani);
@@ -142,7 +140,7 @@ function tarihYaz(gun, ay, yil) {
 
 console.log(etiketOlustur("yazilim")); 
 console.log(kontenjanKontrol(5));      
-console.log(tarihYaz(19, 10, 2026));   
+console.log(tarihYaz(28, 11, 2026));
 
 const etkinlikler = etkinlikVerileri.map((etkinlik) => etkinlik.title);
 console.log(" BÜTÜN ETKİNLİK LİSTESİ ");

@@ -1,0 +1,60 @@
+@HostAddress = https://localhost:7217
+
+### (GET)
+GET {{HostAddress}}/api/events
+Accept: application/json
+
+### (POST)
+POST {{HostAddress}}/api/events
+Content-Type: application/json
+
+{
+  "id": 3,
+  "title": "VS HTTP Dosyasi ile Test",
+  "slug": "vs-http-dosyasi-ile-test",
+  "description": "Postman olmadan, VS icinden basariyla eklendi!",
+  "startDate": "2026-11-20T10:00:00",
+  "locationType": "Online",
+  "categoryId": 1
+}
+### (PUT)
+PUT {{HostAddress}}/api/events/3
+Content-Type: application/json
+
+{
+  "id": 3,
+  "title": "VS HTTP Dosyasi ile Test (GÜNCELLENDİ)",
+  "slug": "vs-http-dosyasi-ile-test-guncellendi",
+  "description": "PUT metodu ile basariyla guncellendi!",
+  "startDate": "2026-11-20T15:00:00",
+  "locationType": "Yüz Yüze",
+  "categoryId": 2
+}
+
+
+
+
+### ANNOUNCEMENT (DUYURU) TESTLERİ - BUG ARAMA
+
+
+### Test 1: Başarılı Duyuru Ekleme (200 OK Dönmeli)
+POST {{HostAddress}}/api/announcements
+Content-Type: application/json
+
+{
+  "title": "Sistem Bakımı",
+  "content": "Bu gece sistem bakımı yapılacaktır."
+}
+
+### Test 2: Boş Başlıkla Duyuru Ekleme (400 Bad Request Dönmeli!)
+POST {{HostAddress}}/api/announcements
+Content-Type: application/json
+
+{
+  "title": "",
+  "content": "Başlıksız duyuru denemesi."
+}
+
+### Test 3: Olmayan Duyuruyu Getirme (404 Not Found Dönmeli!)
+GET {{HostAddress}}/api/announcements/99999
+Accept: application/json

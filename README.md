@@ -11,6 +11,23 @@ Bu proje, lise stajı kapsamında geliştirilen responsive ve etkileşimli bir w
 
 ## Kullanılan Teknolojiler
 - HTML5
+- CSS ve JavaScript
+- ASP.NET Core Web API (.NET 10)
+- MySQL
+
+## Backend'i Çalıştırma
+1. MySQL'de `etkinlik` veritabanını oluşturup `SQL/schema.sql` dosyasını çalıştırın.
+2. PowerShell'de veritabanı bağlantısını ortam değişkeni olarak ayarlayın:
+   ```powershell
+   $env:ConnectionStrings__DefaultConnection = "Server=127.0.0.1;Port=3306;Database=etkinlik;Uid=root;Pwd=<veritabani-parolaniz>"
+   ```
+3. API'yi başlatın:
+   ```powershell
+   dotnet run --project backend\EgitimPortali.API\EgitimPortali.API.csproj
+   ```
+   API varsayılan olarak `http://localhost:5252` adresinde çalışır. Geliştirme ortamında Swagger arayüzü `/swagger` yolundadır.
+
+Veritabanı parolasını kaynak dosyalara veya Git'e eklemeyin. API uç noktaları ve ek veritabanı betikleri `backend\docs` ve `SQL` klasörlerindedir.
 
 ## Final Çalışması: Branch ve Commit Planı
 

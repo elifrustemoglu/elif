@@ -1,0 +1,72 @@
+﻿@baseUrl = https://localhost:49891
+
+### 1. Tüm Kategorileri Listele (GET) -> Sadece Aktif Olanlar ("isDeleted" görünmemeli)
+GET {{baseUrl}}/api/categories?isActive=true
+Accept: application/json
+
+### 2. Yeni Kategori Ekle (POST) -> 201 Created dönmeli
+POST {{baseUrl}}/api/categories
+Content-Type: application/json
+
+{
+  "name": "Teknoloji",
+  "isActive": true
+}
+
+### 3. Aynı Kategoriyi Tekrar Ekle (POST) -> 409 Conflict dönmeli
+POST {{baseUrl}}/api/categories
+Content-Type: application/json
+
+{
+  "name": "Teknoloji",
+  "isActive": true
+}
+
+### 4. Kategori Sil (DELETE) -> 204 NoContent dönmeli
+DELETE {{baseUrl}}/api/categories/1
+
+### 5. İletişim Mesajı Gönder - HATALI TEST (POST) -> 400 Bad Request dönmeli
+POST {{baseUrl}}/api/contact-messages
+Content-Type: application/json
+
+{
+  "senderName": "",
+  "senderEmail": "gecersiz-mail",
+  "subject": "Deneme",
+  "message": "Kısa"
+}
+
+### 6. İletişim Mesajı Gönder - BAŞARILI TEST (POST) -> 201 Created dönmeli
+POST {{baseUrl}}/api/contact-messages 
+Content-Type: application/json
+
+{
+  "senderName": "Efe Özdemir",
+  "senderEmail": "efeeozdemir@gmail.com",
+  "subject": "Etkinlik Başvurusu",
+  "message": "Yarınki yazılım etkinliğine katılmak istiyorum."
+}
+
+### 7. Duyuruları Listele (GET) -> Sadece Aktif Olanlar (200 OK ve AnnouncementDto)
+GET {{baseUrl}}/api/announcements?isActive=true
+Accept: application/json
+
+### 8. Yeni Duyuru Ekle - BAŞARILI TEST (POST) -> 201 Created dönmeli
+POST {{baseUrl}}/api/announcements
+Content-Type: application/json
+
+{
+  "title": "Yeni Etkinlik Duyurusu",
+  "content": "Yarın saat 14:00'te toplantı odasında sunum yapılacaktır.",
+  "isActive": true
+}
+
+### 9. Yeni Duyuru Ekle - HATALI TEST (POST) -> 400 Bad Request dönmeli
+POST {{baseUrl}}/api/announcements
+Content-Type: application/json
+
+{
+  "title": "A",
+  "content": "Kısa",
+  "isActive": true
+}

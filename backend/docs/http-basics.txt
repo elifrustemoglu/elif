@@ -1,0 +1,41 @@
+# HTTP Temelleri ve API İletişim Sözlüğü
+
+Bu doküman, Eğitim Portalı API geliştirme sürecinde kullanılacak temel HTTP kurallarını ve iletişim kavramlarını içerir.
+
+## 1. İstek (Request) Metotları
+İstemcinin (tarayıcı vs.) sunucudan ne yapmak istediğini belirten eylemlerdir.
+* **GET:** Sunucudan veri veya liste okumak için kullanılır. Veritabanında hiçbir değişiklik (ekleme/silme) yapmaz. *(Örnek: Tüm etkinlikleri listelemek veya ID'si 5 olan etkinliğin detayını görmek)*
+* **POST:** Sunucuya yeni bir kayıt eklemek veya veri oluşturmak için kullanılır. *(Örnek: Kullanıcının doldurduğu yeni bir etkinlik formunu veritabanına kaydetmek)*
+
+## 2. Durum Kodları (HTTP Status Codes)
+Sunucunun, yapılan isteğin sonucunu bildirmek için döndüğü standart kodlardır.
+* **200 OK:** İşlem tamamen başarılı oldu. (Özellikle GET işlemlerinde döneriz).
+* **201 Created:** İstek başarılı oldu ve sonucunda yeni bir kaynak/kayıt yaratıldı. (POST işlemlerinde döneriz).
+* **400 Bad Request:** İstemci (kullanıcı) hatalı veya eksik bir istek gönderdi. (Örn: Zorunlu olan Title alanını boş gönderdi).
+* **404 Not Found:** İstediğin ID'ye veya adrese sahip bir kaynak sunucuda bulunamadı.
+* **500 Internal Server Error:** Sunucu tarafında (bizim yazdığımız C# kodunda) beklenmeyen bir çökme veya veritabanı hatası meydana geldi.
+
+## 3. HTTP İstek ve Yanıt Parçaları
+
+### 3.1. Query String (Sorgu Parametreleri)
+URL'nin sonuna "?" ile eklenen filtreleme, arama ve sayfalama parametreleridir. Birden fazla parametre "&" ile ayrılır. (Gizli bilgiler burada taşınmaz).
+* **Örnek:** `https://localhost:5001/api/announcements?search=staj&page=1`
+  * `search=staj` -> İçinde "staj" geçen duyuruları filtreler.
+  * `page=1` -> Sonuçların 1. sayfasını getirir.
+
+### 3.2. HTTP Header (Başlık Bilgileri)
+İstek ve yanıtın format, kimlik ve ayar bilgilerini taşır.
+* `Content-Type: application/json` -> Gönderilen verinin JSON formatında olduğunu belirtir.
+* `Accept: application/json` -> İstemcinin JSON formatında yanıt beklediğini belirtir.
+* `Authorization: Bearer <token>` -> Kullanıcının yetki/oturum bilgisini doğrular.
+
+### 3.3. HTTP Body (Gövde / JSON)
+POST/PUT gibi işlemlerde sunucuya gönderilen veya sunucudan dönen asıl JSON verisidir. (GET isteklerinde Body bulunmaz).
+
+**Örnek İstek Gövdesi (Request Body - POST):**
+```json
+{
+  "title": "C# ve Backend Eğitimi",
+  "category": "Yazılım",
+  "eventDate": "2026-11-15"
+}
